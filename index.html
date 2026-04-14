@@ -223,6 +223,26 @@
             bottom: 80px;
             color: rgba(0,255,135,0.5);
         }
+
+        /* ── Vignette de borda para seções com frame animation ── */
+        .section-edge-vignette {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            /* Inset shadow cria o desfoque nas 4 bordas */
+            box-shadow:
+                inset 0   80px 60px -20px rgba(0, 0, 0, 0.85),  /* topo    */
+                inset 0  -80px 60px -20px rgba(0, 0, 0, 0.85),  /* base    */
+                inset  80px 0  60px -20px rgba(0, 0, 0, 0.75),  /* esquerda */
+                inset -80px 0  60px -20px rgba(0, 0, 0, 0.75);  /* direita  */
+            /* Radial gradient reforça o centro aberto e bordas escuras */
+            background: radial-gradient(
+                ellipse 85% 80% at 50% 50%,
+                transparent 40%,
+                rgba(0, 0, 0, 0.45) 100%
+            );
+        }
     </style>
 </head>
 <body class="font-body selection:bg-primary-container selection:text-on-primary-fixed">
@@ -256,6 +276,9 @@
 
     <!-- Overlay for text legibility -->
     <div id="hero-overlay"></div>
+
+    <!-- Edge vignette blur -->
+    <div class="section-edge-vignette"></div>
 
     <!-- Frame counter (cinematic touch) -->
     <span id="hero-frame-counter">frame_00 / 20</span>
@@ -380,6 +403,9 @@
     <!-- Scroll-Driven Frame Background -->
     <canvas id="timeline-canvas" class="section-frame-canvas" aria-hidden="true"></canvas>
     <div class="section-frame-overlay" id="timeline-overlay" style="background:linear-gradient(105deg,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.6) 50%,rgba(0,0,0,0.82) 100%),linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 15%,rgba(0,0,0,0.3) 85%,rgba(0,0,0,0.7) 100%)"></div>
+
+    <!-- Edge vignette blur -->
+    <div class="section-edge-vignette"></div>
     <span class="section-frame-counter" id="timeline-frame-counter">frame_01 / 20</span>
 
 <div class="mb-24 relative" style="z-index:5">
@@ -729,6 +755,9 @@
     <!-- Scroll-Driven Frame Background -->
     <canvas id="contact-canvas" class="section-frame-canvas" aria-hidden="true"></canvas>
     <div class="section-frame-overlay" id="contact-overlay" style="background:linear-gradient(105deg,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.75) 45%,rgba(0,0,0,0.45) 100%),linear-gradient(to bottom,rgba(0,0,0,0.6) 0%,transparent 20%,transparent 80%,rgba(0,0,0,0.7) 100%)"></div>
+
+    <!-- Edge vignette blur -->
+    <div class="section-edge-vignette"></div>
     <span class="section-frame-counter" id="contact-frame-counter">frame_01 / 20</span>
 
 <div class="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start relative" style="z-index:5">
