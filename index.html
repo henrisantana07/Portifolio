@@ -998,12 +998,14 @@
             let rafStarted    = false;
 
             // Loop mode: controle de tempo
-            let lastLoopTime  = 0;
-            const frameInterval = 1000 / fps; // ms por frame
+            let lastLoopTime    = 0;
+            const frameInterval = 1000 / fps;
 
             function resizeCanvas() {
                 canvas.width  = section.offsetWidth;
                 canvas.height = section.offsetHeight;
+                ctx.globalAlpha = 1;
+                ctx.filter      = 'none';
                 drawFrame(currentFrame, true);
             }
 
@@ -1015,6 +1017,8 @@
                 const scale = Math.max(cw / iw, ch / ih);
                 const sw = iw * scale, sh = ih * scale;
                 const ox = (cw - sw) / 2, oy = (ch - sh) / 2;
+                ctx.globalAlpha = 1;
+                ctx.filter      = 'none';
                 ctx.clearRect(0, 0, cw, ch);
                 ctx.drawImage(img, ox, oy, sw, sh);
                 renderedFrame = index;
@@ -1045,7 +1049,10 @@
                     currentFrame += step || (diff > 0 ? 1 : -1);
                     if (Math.abs(targetFrame - currentFrame) <= 0.5) currentFrame = targetFrame;
                     currentFrame = Math.max(0, Math.min(TOTAL_FRAMES - 1, Math.round(currentFrame)));
-                    drawFrame(currentFrame, false);
+                    // Garante estado limpo do canvas antes de desenhar
+                    ctx.globalAlpha = 1;
+                    ctx.filter      = 'none';
+                    drawFrame(currentFrame, true);
                     updateCounter(currentFrame);
                 }
                 requestAnimationFrame(scrollAnimLoop);
