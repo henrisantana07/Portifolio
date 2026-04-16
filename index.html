@@ -1360,14 +1360,19 @@
             btn.disabled = true;
             btn.innerHTML = 'ENVIANDO...';
 
-            // SUBSTITUA 'YOUR_SERVICE_ID' E 'YOUR_TEMPLATE_ID' PELOS SEUS IDS REAIS
-            emailjs.sendForm('service_t6zj3q4', 'template_pj3z5me', this)
+            // DISPARO DUPLO: Notificação para você e Auto-Resposta para o cliente
+            const notification = emailjs.sendForm('service_t6zj3q4', 'template_pj3z5me', this);
+            
+            // IMPORTANTE: Substitua 'ID_DO_NOVO_TEMPLATE' pelo ID do template de auto-resposta que você criou no painel
+            const autoReply = emailjs.sendForm('service_t6zj3q4', 'template_h98tnkd', this);
+
+            Promise.all([notification, autoReply])
                 .then(() => {
-                    alert('Sua mensagem foi enviada com sucesso para Henrique!');
+                    alert('Sua mensagem foi enviada e uma confirmação foi encaminhada para o seu e-mail!');
                     this.reset();
                 }, (error) => {
                     console.error('EmailJS Error:', error);
-                    alert('Ops! Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente ou use os links diretos para e-mail/WhatsApp.');
+                    alert('Ops! Ocorreu um erro ao processar o envio. Por favor, verifique se os IDs dos templates estão corretos no código.');
                 })
                 .finally(() => {
                     btn.disabled = false;
