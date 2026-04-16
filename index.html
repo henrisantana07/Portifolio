@@ -324,6 +324,69 @@
                 opacity: 0.3;
             }
         }
+
+        /* ── Notification System (Toasts) ── */
+        .notification-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            pointer-events: none;
+        }
+        .tech-toast {
+            pointer-events: auto;
+            min-width: 300px;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid #00FF87;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: translateX(120%);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .tech-toast.active {
+            transform: translateX(0);
+        }
+        .tech-toast::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, rgba(0,255,135,0.05) 0%, transparent 100%);
+            pointer-events: none;
+        }
+        .tech-toast.error { border-left-color: #ffb4ab; }
+        .tech-toast.info { border-left-color: #9B5DE5; }
+        
+        .toast-icon { font-size: 20px; }
+        .toast-content { 
+            font-family: 'JetBrains Mono', monospace; 
+            font-size: 10px; 
+            letter-spacing: 0.1em; 
+            text-transform: uppercase; 
+            color: #e2e2e2;
+        }
+
+        @media (max-width: 640px) {
+            .notification-container {
+                right: 16px;
+                left: 16px;
+                bottom: 16px;
+            }
+            .tech-toast {
+                min-width: 0;
+                width: 100%;
+                padding: 12px 16px;
+            }
+        }
     </style>
 </head>
 <body class="font-body selection:bg-primary-container selection:text-on-primary-fixed">
@@ -936,7 +999,7 @@
 </div>
 </div>
 </div>
-<a href="curriculo.pdf" download="Curriculo_Henrique_Lucas.pdf" class="w-fit mt-8 bg-primary-container text-on-primary-fixed px-10 py-5 font-label font-bold text-sm uppercase tracking-widest flex items-center gap-4 hover:brightness-110 transition-all">
+<a href="curriculo.pdf" download="Curriculo_Henrique_Lucas.pdf" onclick="showNotification('Iniciando download do currículo...', 'info')" class="w-fit mt-8 bg-primary-container text-on-primary-fixed px-10 py-5 font-label font-bold text-sm uppercase tracking-widest flex items-center gap-4 hover:brightness-110 transition-all">
                         BAIXAR CURRÍCULO
                         <span class="material-symbols-outlined text-xl">download</span>
 </a>
@@ -1194,14 +1257,15 @@
             let targetFrame   = 0;
             let renderedFrame = -1;
             let rafStarted    = false;
+            let isVisible     = false;
 
             // Loop mode: controle de tempo
             let lastLoopTime    = 0;
             const frameInterval = 1000 / fps;
 
             function resizeCanvas() {
-                // Usa devicePixelRatio para nitidez em telas HiDPI / Retina
-                const dpr  = window.devicePixelRatio || 1;
+                // Cap DPR a 1.5 para performance sem perda visual perceptível
+                const dpr  = Math.min(window.devicePixelRatio || 1, 1.5);
                 const cssW = section.offsetWidth;
                 const cssH = section.offsetHeight;
                 canvas.width  = cssW * dpr;
@@ -1220,7 +1284,7 @@
                 const img = sharedImages[index];
                 if (!img || !img.complete || (!force && index === renderedFrame)) return;
                 
-                const dpr = window.devicePixelRatio || 1;
+                const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
                 const cw  = canvas.width  / dpr;
                 const ch  = canvas.height / dpr;
                 const iw  = img.naturalWidth, ih = img.naturalHeight;
@@ -1246,6 +1310,11 @@
 
             // ── LOOP MODE: avança por tempo, em loop infinito
             function loopAnimLoop(timestamp) {
+                if (!isVisible) {
+                    rafStarted = false; // Permite reiniciar pelo IntersectionObserver
+                    return; 
+                }
+                
                 if (timestamp - lastLoopTime >= frameInterval) {
                     lastLoopTime = timestamp;
                     currentFrame = (currentFrame + 1) % TOTAL_FRAMES;
@@ -1257,6 +1326,11 @@
 
             // ── SCROLL MODE: interpola suavemente até targetFrame
             function scrollAnimLoop() {
+                if (!isVisible) {
+                    rafStarted = false; // Permite reiniciar pelo IntersectionObserver
+                    return;
+                }
+
                 if (currentFrame !== targetFrame) {
                     const diff = targetFrame - currentFrame;
                     const step = diff > 0 ? Math.ceil(diff * 0.16) : Math.floor(diff * 0.16);
@@ -1285,31 +1359,46 @@
                 targetFrame = Math.round(progress * (TOTAL_FRAMES - 1));
             }
 
+            if (scrollMode === 'section') {
+                window.addEventListener('scroll', onScroll, { passive: true });
+                onScroll();
+            }
+
             // Iniciar quando o primeiro frame estiver pronto
             onFrameReady.push((count) => {
                 if (count === 1) {
                     resizeCanvas();
                     drawFrame(0, true);
                     canvas.classList.add('loaded');
-                    if (!rafStarted) {
-                        rafStarted = true;
-                        if (scrollMode === 'loop') {
-                            requestAnimationFrame(loopAnimLoop);
-                        } else {
-                            scrollAnimLoop();
-                        }
-                    }
                 }
-                drawFrame(currentFrame, true);
             });
 
+            // Intersection Observer para pausar quando fora da tela
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    isVisible = entry.isIntersecting;
+                    if (isVisible && !rafStarted) {
+                        rafStarted = true;
+                        if (scrollMode === 'loop') requestAnimationFrame(loopAnimLoop);
+                        else scrollAnimLoop();
+                    }
+                    if (isVisible) drawFrame(currentFrame, true);
+                });
+            }, { threshold: 0.01 });
+            observer.observe(section);
+            
+            // Forçar um resize inicial após definição das variáveis
             resizeCanvas();
-            window.addEventListener('resize', () => { resizeCanvas(); drawFrame(currentFrame, true); });
 
-            if (scrollMode === 'section') {
-                window.addEventListener('scroll', onScroll, { passive: true });
-                onScroll();
-            }
+            // Debounce no resize
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    resizeCanvas();
+                    drawFrame(currentFrame, true);
+                }, 100);
+            });
         }
 
         // ── Inicializar as três seções ──
@@ -1342,6 +1431,42 @@
             fps:        10
         });
 
+        // Notification System Logic
+        function showNotification(message, type = 'success') {
+            let container = document.querySelector('.notification-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.className = 'notification-container';
+                document.body.appendChild(container);
+            }
+
+            const toast = document.createElement('div');
+            toast.className = `tech-toast ${type}`;
+            
+            let icon = 'check_circle';
+            if (type === 'error') icon = 'error';
+            if (type === 'info') icon = 'info';
+
+            toast.innerHTML = `
+                <span class="material-symbols-outlined toast-icon" style="color: ${type === 'success' ? '#00FF87' : type === 'error' ? '#ffb4ab' : '#9B5DE5'}">${icon}</span>
+                <div class="toast-content">${message}</div>
+            `;
+
+            container.appendChild(toast);
+            
+            // Trigger animation
+            setTimeout(() => toast.classList.add('active'), 10);
+
+            // Auto remove
+            setTimeout(() => {
+                toast.classList.remove('active');
+                setTimeout(() => {
+                    toast.remove();
+                    if (container.childNodes.length === 0) container.remove();
+                }, 500);
+            }, 5000);
+        }
+
         // EmailJS Integration
         (function() {
             // SUBSTITUA PELO SEU PUBLIC KEY DO EMAILJS
@@ -1368,11 +1493,11 @@
 
             Promise.all([notification, autoReply])
                 .then(() => {
-                    alert('Sua mensagem foi enviada e uma confirmação foi encaminhada para o seu e-mail!');
+                    showNotification('Conexão Estabelecida: Mensagem enviada com sucesso!', 'success');
                     this.reset();
                 }, (error) => {
                     console.error('EmailJS Error:', error);
-                    alert('Ops! Ocorreu um erro ao processar o envio. Por favor, verifique se os IDs dos templates estão corretos no código.');
+                    showNotification('Falha na Transmissão: Verifique sua conexão.', 'error');
                 })
                 .finally(() => {
                     btn.disabled = false;
