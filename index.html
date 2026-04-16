@@ -245,15 +245,116 @@
                 rgba(0, 0, 0, 0.45) 100%
             );
         }
+
+        /* ── Mobile Menu Overlay ── */
+        .mobile-menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(-20px);
+        }
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .mobile-menu-link {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #e2e2e2;
+            letter-spacing: -0.05em;
+            transition: all 0.3s ease;
+        }
+        .mobile-menu-link:hover {
+            color: #00FF87;
+            transform: scale(1.05);
+        }
+
+        /* Animação dos ícones sociais no menu mobile */
+        .mobile-social-icons {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s;
+        }
+        .mobile-menu-overlay.active .mobile-social-icons {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Touch Optimization ── */
+        @media (hover: none) and (pointer: coarse) {
+            .custom-cursor, .custom-cursor-dot {
+                display: none !important;
+            }
+            body {
+                cursor: auto !important;
+            }
+        }
+
+        /* ── Responsive Adjustments ── */
+        @media (max-width: 768px) {
+            #glitch-name {
+                font-size: 3rem !important;
+                line-height: 1.1;
+            }
+            .section-frame-canvas, #hero-canvas {
+                /* Reduzir opacidade de animações pesadas no mobile se necessário */
+                opacity: 0.3;
+            }
+        }
     </style>
 </head>
 <body class="font-body selection:bg-primary-container selection:text-on-primary-fixed">
 <div class="custom-cursor" id="cursor"></div>
 <div class="custom-cursor-dot" id="cursor-dot"></div>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu-overlay" id="mobile-menu">
+    <button id="close-menu" class="absolute top-8 right-8 text-white">
+        <span class="material-symbols-outlined text-4xl">close</span>
+    </button>
+    <a href="#hero" class="mobile-menu-link">INÍCIO</a>
+    <a href="#skills" class="mobile-menu-link">HABILIDADES</a>
+    <a href="#timeline" class="mobile-menu-link">TRAJETÓRIA</a>
+    <a href="#tools" class="mobile-menu-link">FERRAMENTAS</a>
+    <a href="#projects" class="mobile-menu-link">PROJETOS</a>
+    <a href="#contact" class="mobile-menu-link">CONECTAR</a>
+    
+    <!-- LINKS SOCIAIS NO MENU MOBILE -->
+    <div class="flex gap-8 mt-8 mobile-social-icons">
+        <a href="https://github.com/henrisantana07" target="_blank" class="group relative p-4 bg-surface-container border border-outline-variant/20 rounded-full hover:border-primary-container/50 transition-all duration-500">
+            <svg class="w-6 h-6 text-[#e2e2e2] group-hover:brightness-125 transition-all" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <title>GitHub</title>
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+            <div class="absolute inset-0 bg-primary-container/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        </a>
+        <a href="https://www.linkedin.com/in/henrique-santana-017b45223/" target="_blank" class="group relative p-4 bg-surface-container border border-outline-variant/20 rounded-full hover:border-[#0077B5]/50 transition-all duration-500">
+            <svg class="w-6 h-6 text-[#e2e2e2] group-hover:brightness-125 transition-all" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                <title>LinkedIn</title>
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            <div class="absolute inset-0 bg-[#0077B5]/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        </a>
+    </div>
+</div>
+
 <div class="scroll-progress-bar"><div class="scroll-progress-fill" id="progress-fill"></div></div>
 <header class="fixed top-0 w-full z-50 bg-black/60 backdrop-blur-xl">
 <nav class="flex justify-between items-center px-6 md:px-12 py-6 w-full max-w-[1920px] mx-auto">
 <div class="font-['Space_Grotesk'] font-bold text-xl tracking-tighter text-[#00FF87]">PORTFOLIO_V1.0</div>
+
 <div class="hidden md:flex gap-10" id="nav-links-container">
 <a class="text-[#00FF87] border-b-2 border-[#00FF87] pb-1 font-['JetBrains_Mono'] uppercase text-[10px] tracking-widest transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(0,255,135,0.4)]" href="#hero">Início</a>
 <a class="text-zinc-500 border-b-2 border-transparent pb-1 font-['JetBrains_Mono'] uppercase text-[10px] tracking-widest hover:text-zinc-200 transition-all duration-300" href="#skills">Habilidades</a>
@@ -262,9 +363,17 @@
 <a class="text-zinc-500 border-b-2 border-transparent pb-1 font-['JetBrains_Mono'] uppercase text-[10px] tracking-widest hover:text-zinc-200 transition-all duration-300" href="#projects">Projetos</a>
 <a class="text-zinc-500 border-b-2 border-transparent pb-1 font-['JetBrains_Mono'] uppercase text-[10px] tracking-widest hover:text-zinc-200 transition-all duration-300" href="#contact">Conectar</a>
 </div>
-<a href="#contact" class="bg-primary-container text-on-primary-fixed px-6 py-2 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest font-bold hover:scale-95 transition-transform duration-200">
-                Contrate-me
-            </a>
+
+<!-- ACTIONS CONTAINER -->
+<div class="flex items-center gap-4">
+    <a href="#contact" class="hidden md:flex bg-primary-container text-on-primary-fixed px-6 py-2 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest font-bold hover:scale-95 transition-transform duration-200">
+        Contrate-me
+    </a>
+    <!-- MOBILE MENU BUTTON (Moved to right) -->
+    <button id="open-menu" class="md:hidden text-[#00FF87] flex items-center justify-center">
+        <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
+</div>
 </nav>
 <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-[#00FF87]/20 to-transparent"></div>
 </header>
@@ -288,7 +397,7 @@
     <!-- Content -->
     <div class="z-10 max-w-5xl relative" style="z-index:5">
         <p class="font-label text-primary-container mb-4 text-xs md:text-sm tracking-[0.3em] uppercase">Status do Sistema: Ativo</p>
-        <h1 class="font-headline text-4xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] mb-6" data-text="HENRIQUE LUCAS SANTANA DA SILVA" id="glitch-name">HENRIQUE LUCAS SANTANA DA SILVA</h1>
+        <h1 class="font-headline text-5xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] mb-6" data-text="HENRIQUE LUCAS SANTANA DA SILVA" id="glitch-name">HENRIQUE LUCAS SANTANA DA SILVA</h1>
         <h2 class="font-headline text-2xl md:text-5xl text-on-surface-variant/80 mb-12 tracking-tight">Em busca de crescimento profissional na área de T.I.</h2>
         <div class="flex flex-wrap gap-6">
             <a class="group relative px-8 py-4 bg-primary-container text-on-primary-fixed font-label font-bold uppercase text-sm tracking-widest overflow-hidden" href="#projects">
@@ -416,7 +525,7 @@
 </div>
 <div class="relative max-w-4xl mx-auto pl-8 md:pl-0" style="z-index:5">
     <!-- Vertical Glow Line -->
-    <div class="absolute left-[11px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#00FF87] via-[#9B5DE5] to-[#9B5DE5] transform md:-translate-x-1/2 shadow-[0_0_15px_rgba(155,93,229,0.8)]"></div>
+    <div class="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#00FF87] via-[#9B5DE5] to-[#9B5DE5] transform md:-translate-x-1/2 shadow-[0_0_15px_rgba(155,93,229,0.8)]"></div>
 
     <!-- Timeline Item 1: Ensino Médio -->
     <div class="relative mb-32 flex flex-col md:flex-row justify-between items-center w-full group">
@@ -434,7 +543,7 @@
         </div>
         
         <!-- Central Node (Hexagon) -->
-        <div class="absolute left-[-5px] md:left-1/2 top-6 md:top-8 transform md:-translate-x-1/2 z-10 flex items-center justify-center filter drop-shadow-[0_0_8px_#00FF87]">
+        <div class="absolute left-0 md:left-1/2 top-6 md:top-8 transform md:-translate-x-1/2 z-10 flex items-center justify-center filter drop-shadow-[0_0_8px_#00FF87]">
             <div class="w-8 h-8 bg-black flex items-center justify-center relative transition-transform duration-300 group-hover:scale-110" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
                 <div class="absolute inset-[2px] bg-[#00FF87] flex items-center justify-center" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
                     <div class="absolute inset-[3px] bg-black" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"></div>
@@ -707,7 +816,7 @@
 <!-- Project Card 1 -->
 <div class="group relative bg-surface-container overflow-hidden">
 <div class="aspect-video overflow-hidden">
-<img alt="Code interface" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="high contrast screen showing clean javascript code with neon syntax highlighting in a dark studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkJNslPgP5COLC688U-cMbKVBXMJ_9FsCQ8jQJiWv47GlhBL1rhbDgdDjWg4udeKmtcMOY2uOvj4mFqK82zikTsbL7o4eq8CzkGAFIczfBO5Db2yJvuN5oRp4nIQYautE8kyPljNzC_UmMaCwFZT6Qx5Basd1OGqspLHoXN82hG-ZvfPVbSBq-lhCOsGSjcAL0zEznqJwfzzi5JSVJlgmv8RXX2sHYmZaUXACOLBdEkBPEyF3lmGkOA05zUTaCz6nTs5re-o6_kpg"/>
+<img loading="lazy" alt="Code interface" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="high contrast screen showing clean javascript code with neon syntax highlighting in a dark studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkJNslPgP5COLC688U-cMbKVBXMJ_9FsCQ8jQJiWv47GlhBL1rhbDgdDjWg4udeKmtcMOY2uOvj4mFqK82zikTsbL7o4eq8CzkGAFIczfBO5Db2yJvuN5oRp4nIQYautE8kyPljNzC_UmMaCwFZT6Qx5Basd1OGqspLHoXN82hG-ZvfPVbSBq-lhCOsGSjcAL0zEznqJwfzzi5JSVJlgmv8RXX2sHYmZaUXACOLBdEkBPEyF3lmGkOA05zUTaCz6nTs5re-o6_kpg"/>
 </div>
 <div class="p-8">
 <div class="flex gap-2 mb-4">
@@ -729,7 +838,7 @@
 <!-- Project Card 2 -->
 <div class="group relative bg-surface-container overflow-hidden">
 <div class="aspect-video overflow-hidden">
-<img alt="Data viz" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="futuristic 3d data visualization with glowing purple lines and connecting nodes on a deep black background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxgWA9Aw_PEg59TQR47ZkrFkjDZeGl-MQ99Ro58iE3RlT5fuvMpo-Xv6ze8jgwACwuE8aLw6ukd4g_mp3BXZOPxIUsNuXLevkXDfSLs60m8iy_r9AdcuKiisxBBf44h52erlarvuTG9jbrE5eFRyaB0Xy0rbHAkxq8uWcH_0P9YYD_bqlDOjFupHbfYRxwGEk6dCowgrNNw7jNHr4jTa9bGwUsNFts1-WrsaML341ni3cI3VOYGr-gT71veJI5AjWVIFT3zv8efPI"/>
+<img loading="lazy" alt="Data viz" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="futuristic 3d data visualization with glowing purple lines and connecting nodes on a deep black background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxgWA9Aw_PEg59TQR47ZkrFkjDZeGl-MQ99Ro58iE3RlT5fuvMpo-Xv6ze8jgwACwuE8aLw6ukd4g_mp3BXZOPxIUsNuXLevkXDfSLs60m8iy_r9AdcuKiisxBBf44h52erlarvuTG9jbrE5eFRyaB0Xy0rbHAkxq8uWcH_0P9YYD_bqlDOjFupHbfYRxwGEk6dCowgrNNw7jNHr4jTa9bGwUsNFts1-WrsaML341ni3cI3VOYGr-gT71veJI5AjWVIFT3zv8efPI"/>
 </div>
 <div class="p-8">
 <div class="flex gap-2 mb-4">
@@ -751,7 +860,7 @@
 <!-- Project Card 3 -->
 <div class="group relative bg-surface-container overflow-hidden">
 <div class="aspect-video overflow-hidden">
-<img alt="Hardware circuit" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="macro close-up of a high-tech circuit board with tiny glowing green led lights and intricate golden traces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAQHgcRtqRGJJxbKSYhcff74ODzbb1XrAnZSWeRA84sMzy-nwPYhaunv2GLIlmp1suwYZpYXh54qlFXTRZ6774-ZVTltIm_WGLBTbdAXU2A4i5eB3kwZf3nITsyoUw7HhPSMbk1vOhmVzM9xprhD3mDhLsTMFb5m5jl-1pHIAaLsOw8W_FlX2Dr5QGB_WXusaZGi5wsa4AmMtZJy6YUCVWFEywveNH7fmK3OjxVImfaCEfwfdiX5C3pbPMw-GmeEjF6iT-3rQRRko"/>
+<img loading="lazy" alt="Hardware circuit" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="macro close-up of a high-tech circuit board with tiny glowing green led lights and intricate golden traces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAQHgcRtqRGJJxbKSYhcff74ODzbb1XrAnZSWeRA84sMzy-nwPYhaunv2GLIlmp1suwYZpYXh54qlFXTRZ6774-ZVTltIm_WGLBTbdAXU2A4i5eB3kwZf3nITsyoUw7HhPSMbk1vOhmVzM9xprhD3mDhLsTMFb5m5jl-1pHIAaLsOw8W_FlX2Dr5QGB_WXusaZGi5wsa4AmMtZJy6YUCVWFEywveNH7fmK3OjxVImfaCEfwfdiX5C3pbPMw-GmeEjF6iT-3rQRRko"/>
 </div>
 <div class="p-8">
 <div class="flex gap-2 mb-4">
@@ -867,36 +976,39 @@
         // Custom Cursor Logic
         const cursor = document.getElementById('cursor');
         const dot = document.getElementById('cursor-dot');
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            dot.style.left = e.clientX + 'px';
-            dot.style.top = e.clientY + 'px';
-        });
-
-        // Click interaction
-        document.addEventListener('mousedown', () => {
-            cursor.style.transform = 'scale(0.8)';
-        });
-        document.addEventListener('mouseup', () => {
-            cursor.style.transform = 'scale(1)';
-        });
-
-        // Hover states for cursor
-        const hoverables = document.querySelectorAll('a, button, .group, input, textarea');
-        hoverables.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.width = '50px';
-                cursor.style.height = '50px';
-                cursor.style.backgroundColor = 'rgba(0, 255, 135, 0.1)';
+        if (!isTouchDevice) {
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                dot.style.left = e.clientX + 'px';
+                dot.style.top = e.clientY + 'px';
             });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.width = '20px';
-                cursor.style.height = '20px';
-                cursor.style.backgroundColor = 'transparent';
+
+            // Click interaction
+            document.addEventListener('mousedown', () => {
+                cursor.style.transform = 'scale(0.8)';
             });
-        });
+            document.addEventListener('mouseup', () => {
+                cursor.style.transform = 'scale(1)';
+            });
+
+            // Hover states for cursor
+            const hoverables = document.querySelectorAll('a, button, .group, input, textarea');
+            hoverables.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.width = '50px';
+                    cursor.style.height = '50px';
+                    cursor.style.backgroundColor = 'rgba(0, 255, 135, 0.1)';
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.width = '20px';
+                    cursor.style.height = '20px';
+                    cursor.style.backgroundColor = 'transparent';
+                });
+            });
+        }
 
         // Scroll Progress Logic
         window.addEventListener('scroll', () => {
@@ -907,6 +1019,21 @@
             const percent = (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
             document.getElementById('progress-fill').style.height = percent + '%';
         });
+
+        // Mobile Menu Logic
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openMenuBtn = document.getElementById('open-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-menu-link');
+
+        const toggleMenu = () => {
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        };
+
+        openMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
 
         // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1016,7 +1143,12 @@
         const onFrameReady = [];
 
         function preloadSharedFrames() {
-            for (let i = 0; i < TOTAL_FRAMES; i++) {
+            // Otimização: No mobile, carregar menos frames ou nenhum se for detectado device fraco
+            // Por enquanto, vamos carregar todos, mas poderíamos filtrar aqui.
+            const framesToLoad = isTouchDevice ? 10 : TOTAL_FRAMES; 
+            const step = isTouchDevice ? 2 : 1;
+
+            for (let i = 0; i < TOTAL_FRAMES; i += step) {
                 const img = new Image();
                 img.src = FRAME_PATH(i + 1);
                 img.onload = img.onerror = () => {
