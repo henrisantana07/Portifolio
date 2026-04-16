@@ -82,11 +82,21 @@
       }
     </script>
 <style>
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
         body {
             background-color: #000000;
             color: #e2e2e2;
-            overflow-x: hidden;
             cursor: none;
+        }
+        * {
+            box-sizing: border-box;
         }
         .technical-grid {
             background-image: radial-gradient(#3b4b3d 1px, transparent 1px);
@@ -397,7 +407,7 @@
     <!-- Content -->
     <div class="z-10 max-w-5xl relative" style="z-index:5">
         <p class="font-label text-primary-container mb-4 text-xs md:text-sm tracking-[0.3em] uppercase">Status do Sistema: Ativo</p>
-        <h1 class="font-headline text-5xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] mb-6" data-text="HENRIQUE LUCAS SANTANA DA SILVA" id="glitch-name">HENRIQUE LUCAS SANTANA DA SILVA</h1>
+        <h1 class="font-headline text-3xl sm:text-4xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] mb-6 break-words" data-text="HENRIQUE LUCAS SANTANA DA SILVA" id="glitch-name">HENRIQUE LUCAS SANTANA DA SILVA</h1>
         <h2 class="font-headline text-2xl md:text-5xl text-on-surface-variant/80 mb-12 tracking-tight">Em busca de crescimento profissional na área de T.I.</h2>
         <div class="flex flex-wrap gap-6">
             <a class="group relative px-8 py-4 bg-primary-container text-on-primary-fixed font-label font-bold uppercase text-sm tracking-widest overflow-hidden" href="#projects">
@@ -417,12 +427,12 @@
 </section>
 <!-- SKILLS SECTION -->
 <section class="py-32 px-6 md:px-24 bg-surface-container-lowest" id="skills">
-<div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
 <div>
 <span class="font-label text-secondary text-xs tracking-[0.4em] uppercase mb-4 block">Competências</span>
-<h2 class="font-headline text-4xl md:text-6xl font-bold tracking-tighter">Stack_Técnica</h2>
+<h2 class="font-headline text-3xl md:text-6xl font-bold tracking-tighter break-words">Stack_Técnica</h2>
 </div>
-<p class="max-w-md text-on-surface-variant font-body leading-relaxed text-right md:text-left">
+<p class="max-w-md text-on-surface-variant font-body leading-relaxed">
                     Desenvolvendo bases sólidas em programação e infraestrutura de dados para soluções escaláveis.
                 </p>
 </div>
@@ -521,7 +531,7 @@
 
 <div class="mb-24 relative" style="z-index:5">
 <span class="font-label text-primary-container text-xs tracking-[0.4em] uppercase mb-4 block">Histórico</span>
-<h2 class="font-headline text-4xl md:text-6xl font-bold tracking-tighter">Jornada_Log</h2>
+<h2 class="font-headline text-3xl md:text-6xl font-bold tracking-tighter break-words">Jornada_Log</h2>
 </div>
 <div class="relative max-w-4xl mx-auto pl-8 md:pl-0" style="z-index:5">
     <!-- Vertical Glow Line -->
@@ -690,12 +700,12 @@
 </section>
 <!-- TOOLS & SKILLS SECTION -->
 <section class="py-32 px-6 md:px-24 bg-surface-container-lowest border-t border-outline-variant/10" id="tools">
-<div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
 <div>
 <span class="font-label text-primary-container text-xs tracking-[0.4em] uppercase mb-4 block">Tecnologias</span>
-<h2 class="font-headline text-4xl md:text-6xl font-bold tracking-tighter">Habilidades_e_Ferramentas</h2>
+<h2 class="font-headline text-3xl md:text-6xl font-bold tracking-tighter break-words">Habilidades_e_Ferramentas</h2>
 </div>
-<p class="max-w-md text-on-surface-variant font-body leading-relaxed text-right md:text-left">
+<p class="max-w-md text-on-surface-variant font-body leading-relaxed text-justify">
                     Conjunto de ferramentas e linguagens focadas na criação de interfaces modernas e experiências dinâmicas.
                 </p>
 </div>
@@ -798,10 +808,10 @@
 </section>
 <!-- PROJECTS SECTION -->
 <section class="py-32 px-6 md:px-24 bg-surface-container-lowest" id="projects">
-<div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
 <div>
 <span class="font-label text-primary-container text-xs tracking-[0.4em] uppercase mb-4 block">Portfólio</span>
-<h2 class="font-headline text-4xl md:text-6xl font-bold tracking-tighter">Trabalhos_Recentes</h2>
+<h2 class="font-headline text-2xl sm:text-3xl md:text-6xl font-bold tracking-tighter break-words">Trabalhos_Recentes</h2>
 </div>
 <div class="flex gap-4">
 <button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary-container hover:text-on-primary-fixed transition-colors">
@@ -892,10 +902,10 @@
     <div class="section-edge-vignette"></div>
     <span class="section-frame-counter" id="contact-frame-counter">frame_01 / 20</span>
 
-<div class="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start relative" style="z-index:5">
+<div class="w-full max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start relative px-4" style="z-index:5">
 <!-- Left Column: Info -->
 <div class="flex flex-col gap-12">
-<h2 class="font-headline text-5xl md:text-7xl font-bold tracking-tight text-white uppercase mb-4">CONECTAR_LINK</h2>
+<h2 class="font-headline text-3xl md:text-7xl font-bold tracking-tight text-white uppercase mb-4 break-all leading-[1.1]">CONECTAR_LINK</h2>
 <div class="flex flex-col gap-10">
 <div class="flex items-start gap-6">
 <div class="w-12 h-12 border border-primary-container/30 flex items-center justify-center text-primary-container">
