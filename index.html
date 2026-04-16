@@ -182,6 +182,8 @@
         }
         .section-frame-canvas.loaded, #hero-canvas.loaded {
             opacity: 1;
+            /* Leve aumento de nitidez via CSS para compensar expansão */
+            filter: contrast(1.05) brightness(1.1) saturate(1.1);
         }
         .section-frame-overlay, #hero-overlay {
             position: absolute;
@@ -454,6 +456,13 @@
                 <h3 class="font-headline text-[13px] font-bold mb-3 text-white uppercase tracking-wider relative z-10">
                     FORMAÇÃO ACADÊMICA: ENSINO MÉDIO
                 </h3>
+                <!-- Badge de período -->
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="material-symbols-outlined text-[#00FF87] text-[14px]">calendar_month</span>
+                    <span class="font-label text-[10px] text-[#00FF87] uppercase tracking-widest">Fev 2023</span>
+                    <span class="font-label text-[10px] text-zinc-500 uppercase">→</span>
+                    <span class="font-label text-[10px] text-[#00FF87] uppercase tracking-widest">Dez 2025</span>
+                </div>
                 <p class="font-headline text-[#00FF87] font-bold text-xl mb-1 drop-shadow-[0_0_5px_rgba(0,255,135,0.5)]">Hilda Miranda Nascimento</p>
                 <p class="font-body text-zinc-300 text-xs mb-1">Porto Canoa, Serra - ES</p>
                 <p class="font-body text-zinc-300 text-xs mb-3">Formação Integral em Manutenção</p>
@@ -498,6 +507,13 @@
                 <h3 class="font-headline text-[13px] font-bold mb-3 text-white uppercase tracking-wider relative z-10">
                     FORMAÇÃO PROFISSIONAL: IBDH
                 </h3>
+                <!-- Badge de período -->
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="material-symbols-outlined text-[#9B5DE5] text-[14px]">calendar_month</span>
+                    <span class="font-label text-[10px] text-[#9B5DE5] uppercase tracking-widest">17 Nov 2022</span>
+                    <span class="font-label text-[10px] text-zinc-500 uppercase">→</span>
+                    <span class="font-label text-[10px] text-[#9B5DE5] uppercase tracking-widest">21 Fev 2024</span>
+                </div>
                 <p class="font-body text-white font-bold text-[15px] mb-1 leading-snug">Instituto Brasileiro de Desenvolvimento Humano (IBDH)</p>
                 <p class="font-headline text-[#9B5DE5] font-bold text-xl mb-2 drop-shadow-[0_0_5px_rgba(155,93,229,0.5)]">Assistente Administrativo</p>
                 <p class="font-body text-zinc-300 text-xs mb-1">Carga Horária: 1280 horas</p>
@@ -543,11 +559,18 @@
                 <h3 class="font-headline text-[13px] font-bold mb-3 text-white uppercase tracking-wider relative z-10">
                     FORMAÇÃO ATUAL & APRENDIZAGEM
                 </h3>
+                <!-- Badge de período -->
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="material-symbols-outlined text-[#9B5DE5] text-[14px]">calendar_month</span>
+                    <span class="font-label text-[10px] text-[#9B5DE5] uppercase tracking-widest">Ago 2024</span>
+                    <span class="font-label text-[10px] text-zinc-500 uppercase">→</span>
+                    <span class="font-label text-[10px] text-[#9B5DE5] uppercase tracking-widest">Abr 2026</span>
+                </div>
                 <p class="font-body text-white font-bold text-[17px] mb-1 drop-shadow-[0_0_2px_rgba(255,255,255,0.5)]">SENAI - Beira Mar</p>
                 <p class="font-headline text-[#9B5DE5] font-bold text-lg mb-2 drop-shadow-[0_0_5px_rgba(155,93,229,0.5)]">Cursando: Desenvolvimento de Sistemas</p>
                 <p class="font-body text-zinc-300 text-xs mb-1">Programa de Aprendizagem Industrial</p>
                 <p class="font-body text-zinc-300 text-xs mb-3">Local: Bento Ferreira, Vitória - ES</p>
-                <p class="font-body text-[#9B5DE5] font-semibold text-xs">Jornada: Menor Aprendiz <br class="md:hidden"><span class="font-normal opacity-80">(Ago 2024 - Presente)</span></p>
+                <p class="font-body text-[#9B5DE5] font-semibold text-xs">Jornada: Menor Aprendiz <br class="md:hidden"><span class="font-normal opacity-80">(Ago 2024 - Abr 2026)</span></p>
                 <p class="font-body text-[#00FF87] font-semibold text-xs mb-1">Status: Concluído</p>
            
             </div>
@@ -832,8 +855,8 @@
             © 2026 HENRIQUE // TODOS OS DIREITOS RESERVADOS
         </div>
 <div class="flex gap-8">
-<a target="_blank" class="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-zinc-600 hover:text-[#9B5DE5] transition-colors" href="https://github.com/SeuUsuario">GitHub</a>
-<a target="_blank" class="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-zinc-600 hover:text-[#9B5DE5] transition-colors" href="https://linkedin.com/in/SeuUsuario">LinkedIn</a>
+<a target="_blank" class="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-zinc-600 hover:text-[#9B5DE5] transition-colors" href="https://github.com/henrisantana07">GitHub</a>
+<a target="_blank" class="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-zinc-600 hover:text-[#9B5DE5] transition-colors" href="https://www.linkedin.com/in/henrique-santana-017b45223/">LinkedIn</a>
 <a class="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-zinc-600 hover:text-[#9B5DE5] transition-colors" href="#hero">Voltar ao topo</a>
 </div>
 <div class="text-[#00FF87] font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest">
@@ -1031,8 +1054,17 @@
             const frameInterval = 1000 / fps;
 
             function resizeCanvas() {
-                canvas.width  = section.offsetWidth;
-                canvas.height = section.offsetHeight;
+                // Usa devicePixelRatio para nitidez em telas HiDPI / Retina
+                const dpr  = window.devicePixelRatio || 1;
+                const cssW = section.offsetWidth;
+                const cssH = section.offsetHeight;
+                canvas.width  = cssW * dpr;
+                canvas.height = cssH * dpr;
+                canvas.style.width  = cssW + 'px';
+                canvas.style.height = cssH + 'px';
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                ctx.imageSmoothingEnabled = true;
+                ctx.imageSmoothingQuality = 'high';
                 ctx.globalAlpha = 1;
                 ctx.filter      = 'none';
                 drawFrame(currentFrame, true);
@@ -1041,13 +1073,20 @@
             function drawFrame(index, force) {
                 const img = sharedImages[index];
                 if (!img || !img.complete || (!force && index === renderedFrame)) return;
-                const cw = canvas.width, ch = canvas.height;
-                const iw = img.naturalWidth, ih = img.naturalHeight;
+                
+                const dpr = window.devicePixelRatio || 1;
+                const cw  = canvas.width  / dpr;
+                const ch  = canvas.height / dpr;
+                const iw  = img.naturalWidth, ih = img.naturalHeight;
+                
                 const scale = Math.max(cw / iw, ch / ih);
                 const sw = iw * scale, sh = ih * scale;
                 const ox = (cw - sw) / 2, oy = (ch - sh) / 2;
+
+                ctx.imageSmoothingEnabled = true;
+                ctx.imageSmoothingQuality = 'high';
                 ctx.globalAlpha = 1;
-                ctx.filter      = 'none';
+                
                 ctx.clearRect(0, 0, cw, ch);
                 ctx.drawImage(img, ox, oy, sw, sh);
                 renderedFrame = index;
@@ -1139,12 +1178,13 @@
             fps:        10
         });
 
-        // Jornada_Log: controlado pelo scroll
+        // Jornada_Log: loop automático a 8 fps (independente do scroll)
         initSectionFrameAnimation({
             canvasId:   'timeline-canvas',
             counterId:  'timeline-frame-counter',
             sectionId:  'timeline',
-            scrollMode: 'section'
+            scrollMode: 'loop',
+            fps:        8
         });
 
         // CONECTAR_LINK: loop automático a 10 fps
