@@ -128,6 +128,30 @@ sections.forEach(section => {
     if (section) observer.observe(section);
 });
 
+// Project Cards External Links
+const projectCards = document.querySelectorAll('#projects [data-project-url]');
+
+projectCards.forEach((card) => {
+    const projectUrl = card.getAttribute('data-project-url');
+    if (!projectUrl) return;
+
+    card.style.cursor = 'pointer';
+    card.setAttribute('role', 'link');
+    card.setAttribute('tabindex', '0');
+
+    card.addEventListener('click', (event) => {
+        if (event.target.closest('a, button')) return;
+        window.open(projectUrl, '_blank', 'noopener,noreferrer');
+    });
+
+    card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            window.open(projectUrl, '_blank', 'noopener,noreferrer');
+        }
+    });
+});
+
 // Scroll Reveal Animation (Staggered Waterfall)
 const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
