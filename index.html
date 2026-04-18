@@ -586,15 +586,16 @@
 <h2 class="font-headline text-2xl sm:text-3xl md:text-6xl font-bold tracking-tighter break-words">Trabalhos_Recentes</h2>
 </div>
 <div class="flex gap-4">
-<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary-container hover:text-on-primary-fixed transition-colors">
+<button id="projects-prev" aria-label="Projeto anterior" class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary-container hover:text-on-primary-fixed transition-colors">
 <span class="material-symbols-outlined">arrow_back</span>
 </button>
-<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary-container hover:text-on-primary-fixed transition-colors">
+<button id="projects-next" aria-label="Próximo projeto" class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary-container hover:text-on-primary-fixed transition-colors">
 <span class="material-symbols-outlined">arrow_forward</span>
 </button>
 </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div id="projects-carousel-viewport" class="w-full overflow-hidden">
+<div id="projects-track" class="grid grid-cols-1 md:grid-cols-3 gap-8">
 <!-- Project Card 1 -->
 <div class="group relative bg-surface-container overflow-hidden" data-project-url="https://contos-derry-1.vercel.app/">
 <div class="aspect-video overflow-hidden">
@@ -602,8 +603,8 @@
 </div>
 <div class="p-8">
 <div class="flex gap-2 mb-4">
-<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-primary-container">REACT</span>
-<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-secondary">NODE.JS</span>
+<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-primary-container">LIVRARIA TERROR</span>
+<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-secondary">E-COMMERCE</span>
 </div>
 <h3 class="font-headline text-2xl font-bold mb-4">Contos Derry</h3>
 <p class="font-body text-on-surface-variant text-sm mb-8 leading-relaxed">Landing page temática para livraria de terror, com vitrine de coleções, destaques de títulos e navegação responsiva.</p>
@@ -626,8 +627,8 @@
 </div>
 <div class="p-8">
 <div class="flex gap-2 mb-4">
-<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-primary-container">TYPESCRIPT</span>
-<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-secondary">POSTGRES</span>
+<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-primary-container">AUTOMAÇÃO</span>
+<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-secondary">LOGÍSTICA</span>
 </div>
 <h3 class="font-headline text-2xl font-bold mb-4">Vectra</h3>
 <p class="font-body text-on-surface-variant text-sm mb-8 leading-relaxed">Landing page para solução de automação logística, com foco em apresentação de funcionalidades, proposta de valor e contato comercial.</p>
@@ -646,24 +647,25 @@
 <!-- Project Card 3 -->
 <div class="group relative bg-surface-container overflow-hidden">
 <div class="aspect-video overflow-hidden">
-<img loading="lazy" alt="Hardware circuit" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="macro close-up of a high-tech circuit board with tiny glowing green led lights and intricate golden traces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAQHgcRtqRGJJxbKSYhcff74ODzbb1XrAnZSWeRA84sMzy-nwPYhaunv2GLIlmp1suwYZpYXh54qlFXTRZ6774-ZVTltIm_WGLBTbdAXU2A4i5eB3kwZf3nITsyoUw7HhPSMbk1vOhmVzM9xprhD3mDhLsTMFb5m5jl-1pHIAaLsOw8W_FlX2Dr5QGB_WXusaZGi5wsa4AmMtZJy6YUCVWFEywveNH7fmK3OjxVImfaCEfwfdiX5C3pbPMw-GmeEjF6iT-3rQRRko"/>
+<img loading="lazy" alt="Imagem de projeto em breve" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="arte indicando novo case em breve" src="image/em-breve.svg"/>
 </div>
 <div class="p-8">
 <div class="flex gap-2 mb-4">
-<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-primary-container">PYTHON</span>
-<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-secondary">DOCKER</span>
+<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-primary-container">EM PLANEJAMENTO</span>
+<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-secondary">PRÓXIMO LANÇAMENTO</span>
 </div>
-<h3 class="font-headline text-2xl font-bold mb-4">VoidRunner Engine</h3>
-<p class="font-body text-on-surface-variant text-sm mb-8 leading-relaxed">Microservices orchestrator built for low-latency automation in distributed cloud environments.</p>
+<h3 class="font-headline text-2xl font-bold mb-4">Projeto Futuro</h3>
+<p class="font-body text-on-surface-variant text-sm mb-8 leading-relaxed">Espaço reservado para o próximo case do portfólio, com foco em solução real, performance e experiência moderna para usuários.</p>
 <div class="flex justify-between items-center">
-<a class="font-label text-xs uppercase tracking-widest text-primary-container hover:underline" href="#">View Case</a>
+<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Atualização em breve</span>
 <div class="flex gap-4">
-<span class="material-symbols-outlined text-on-surface-variant hover:text-on-surface cursor-pointer" data-icon="code">code</span>
-<span class="material-symbols-outlined text-on-surface-variant hover:text-on-surface cursor-pointer" data-icon="open_in_new">open_in_new</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="rocket_launch">rocket_launch</span>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="schedule">schedule</span>
 </div>
 </div>
 </div>
 <div class="absolute inset-0 border border-primary-container/0 group-hover:border-primary-container/40 pointer-events-none transition-colors duration-500"></div>
+</div>
 </div>
 </div>
 </section>

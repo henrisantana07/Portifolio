@@ -129,28 +129,276 @@ sections.forEach(section => {
 });
 
 // Project Cards External Links
-const projectCards = document.querySelectorAll('#projects [data-project-url]');
+let blockProjectCardClickUntil = 0;
+const projectsSection = document.getElementById('projects');
 
-projectCards.forEach((card) => {
+const decorateProjectCards = (rootEl) => {
+    if (!rootEl) return;
+    rootEl.querySelectorAll('[data-project-url]').forEach((card) => {
+        card.style.cursor = 'pointer';
+        card.setAttribute('role', 'link');
+        card.setAttribute('tabindex', '0');
+    });
+};
+
+const openProjectFromCard = (card) => {
+    if (!card) return;
     const projectUrl = card.getAttribute('data-project-url');
     if (!projectUrl) return;
+    window.open(projectUrl, '_blank', 'noopener,noreferrer');
+};
 
-    card.style.cursor = 'pointer';
-    card.setAttribute('role', 'link');
-    card.setAttribute('tabindex', '0');
+decorateProjectCards(projectsSection);
 
-    card.addEventListener('click', (event) => {
+if (projectsSection) {
+    projectsSection.addEventListener('click', (event) => {
+        const card = event.target.closest('[data-project-url]');
+        if (!card || !projectsSection.contains(card)) return;
+        if (Date.now() < blockProjectCardClickUntil) return;
         if (event.target.closest('a, button')) return;
-        window.open(projectUrl, '_blank', 'noopener,noreferrer');
+        openProjectFromCard(card);
     });
 
-    card.addEventListener('keydown', (event) => {
+    projectsSection.addEventListener('keydown', (event) => {
+        const card = event.target.closest('[data-project-url]');
+        if (!card || !projectsSection.contains(card)) return;
         if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault();
-            window.open(projectUrl, '_blank', 'noopener,noreferrer');
+            openProjectFromCard(card);
         }
     });
-});
+}
+
+// Projects Carousel
+const projectsTrack = document.getElementById('projects-track');
+const projectsViewport = document.getElementById('projects-carousel-viewport');
+const projectsPrevBtn = document.getElementById('projects-prev');
+const projectsNextBtn = document.getElementById('projects-next');
+const reducedMotionMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+let projectsCarouselEnabled = false;
+let projectsCarouselAnimating = false;
+let projectsOriginalCards = [];
+let projectsVisibleCards = 1;
+let projectsCurrentIndex = 0;
+let projectsHasBuiltTrack = false;
+
+const setProjectsButtonsState = (enabled) => {
+    [projectsPrevBtn, projectsNextBtn].forEach((btn) => {
+        if (!btn) return;
+        btn.disabled = !enabled;
+        btn.setAttribute('aria-disabled', String(!enabled));
+    });
+};
+
+const getProjectsStep = () => {
+    if (!projectsTrack) return 0;
+    const firstCard = projectsTrack.querySelector(':scope > .group');
+    if (!firstCard) return 0;
+
+    const styles = window.getComputedStyle(projectsTrack);
+    const gapValue = styles.columnGap || styles.gap || '0';
+    const gap = Number.parseFloat(gapValue) || 0;
+    return firstCard.getBoundingClientRect().width + gap;
+};
+
+const getProjectsVisibleCards = (totalCards) => {
+    if (window.innerWidth >= 1024) return Math.min(3, totalCards);
+    return 1;
+};
+
+const setProjectsTransform = () => {
+    if (!projectsTrack) return;
+    const step = getProjectsStep();
+    projectsTrack.style.transform = step ? `translateX(-${projectsCurrentIndex * step}px)` : 'translateX(0)';
+};
+
+const rebuildProjectsTrack = () => {
+    if (!projectsTrack || projectsOriginalCards.length === 0) return;
+
+    const totalCards = projectsOriginalCards.length;
+    const previousVisible = projectsVisibleCards;
+    const previousIndex = projectsCurrentIndex;
+    const logicalIndex = projectsHasBuiltTrack
+        ? ((previousIndex - previousVisible) % totalCards + totalCards) % totalCards
+        : 0;
+
+    projectsVisibleCards = getProjectsVisibleCards(totalCards);
+    projectsTrack.innerHTML = '';
+
+    const prefixStart = totalCards - projectsVisibleCards;
+    for (let i = 0; i < projectsVisibleCards; i++) {
+        const clone = projectsOriginalCards[(prefixStart + i) % totalCards].cloneNode(true);
+        projectsTrack.appendChild(clone);
+    }
+
+    projectsOriginalCards.forEach((card) => {
+        projectsTrack.appendChild(card);
+    });
+
+    for (let i = 0; i < projectsVisibleCards; i++) {
+        const clone = projectsOriginalCards[i % totalCards].cloneNode(true);
+        projectsTrack.appendChild(clone);
+    }
+
+    decorateProjectCards(projectsTrack);
+    projectsCurrentIndex = projectsVisibleCards + logicalIndex;
+    projectsTrack.style.transition = 'none';
+    setProjectsTransform();
+    projectsTrack.getBoundingClientRect();
+    projectsTrack.style.transition = '';
+    projectsCarouselAnimating = false;
+    projectsHasBuiltTrack = true;
+};
+
+const syncProjectsCarouselMode = () => {
+    if (!projectsTrack) return;
+    if (projectsOriginalCards.length === 0) {
+        projectsOriginalCards = Array.from(projectsTrack.children);
+    }
+
+    projectsCarouselEnabled = projectsOriginalCards.length > 1;
+
+    if (!projectsCarouselEnabled) {
+        projectsTrack.classList.remove('carousel-active');
+        projectsTrack.style.transition = '';
+        projectsTrack.style.transform = '';
+        setProjectsButtonsState(false);
+        return;
+    }
+
+    projectsTrack.classList.add('carousel-active');
+    rebuildProjectsTrack();
+    setProjectsButtonsState(true);
+};
+
+const handleProjectsTransitionEnd = (event) => {
+    if (!projectsTrack || event.target !== projectsTrack || !projectsCarouselAnimating) return;
+
+    const totalCards = projectsOriginalCards.length;
+    let resetIndex = null;
+
+    if (projectsCurrentIndex >= totalCards + projectsVisibleCards) {
+        resetIndex = projectsVisibleCards;
+    } else if (projectsCurrentIndex < projectsVisibleCards) {
+        resetIndex = totalCards + projectsVisibleCards - 1;
+    }
+
+    if (resetIndex !== null) {
+        projectsTrack.style.transition = 'none';
+        projectsCurrentIndex = resetIndex;
+        setProjectsTransform();
+        projectsTrack.getBoundingClientRect();
+        projectsTrack.style.transition = '';
+    }
+
+    projectsCarouselAnimating = false;
+};
+
+const moveProjectsBy = (direction) => {
+    if (!projectsCarouselEnabled || projectsCarouselAnimating || !projectsTrack) return;
+    if (projectsOriginalCards.length < 2) return;
+
+    projectsCurrentIndex += direction;
+
+    if (reducedMotionMedia.matches) {
+        const totalCards = projectsOriginalCards.length;
+        if (projectsCurrentIndex >= totalCards + projectsVisibleCards) {
+            projectsCurrentIndex = projectsVisibleCards;
+        } else if (projectsCurrentIndex < projectsVisibleCards) {
+            projectsCurrentIndex = totalCards + projectsVisibleCards - 1;
+        }
+
+        projectsTrack.style.transition = 'none';
+        setProjectsTransform();
+        projectsTrack.getBoundingClientRect();
+        projectsTrack.style.transition = '';
+        return;
+    }
+
+    projectsCarouselAnimating = true;
+    setProjectsTransform();
+};
+
+const moveProjectsNext = () => moveProjectsBy(1);
+const moveProjectsPrev = () => moveProjectsBy(-1);
+
+const setupProjectsSwipe = () => {
+    if (!projectsViewport || !isTouchDevice) return;
+
+    const SWIPE_THRESHOLD = 48;
+    let startX = 0;
+    let startY = 0;
+    let deltaX = 0;
+    let deltaY = 0;
+    let trackingTouch = false;
+    let horizontalSwipe = false;
+
+    projectsViewport.addEventListener('touchstart', (event) => {
+        if (!projectsCarouselEnabled || projectsCarouselAnimating) return;
+
+        const touch = event.touches[0];
+        if (!touch) return;
+
+        startX = touch.clientX;
+        startY = touch.clientY;
+        deltaX = 0;
+        deltaY = 0;
+        trackingTouch = true;
+        horizontalSwipe = false;
+    }, { passive: true });
+
+    projectsViewport.addEventListener('touchmove', (event) => {
+        if (!trackingTouch || projectsCarouselAnimating) return;
+
+        const touch = event.touches[0];
+        if (!touch) return;
+
+        deltaX = touch.clientX - startX;
+        deltaY = touch.clientY - startY;
+
+        if (!horizontalSwipe) {
+            if (Math.abs(deltaX) > 12 && Math.abs(deltaX) > Math.abs(deltaY)) {
+                horizontalSwipe = true;
+            } else if (Math.abs(deltaY) > 12 && Math.abs(deltaY) > Math.abs(deltaX)) {
+                trackingTouch = false;
+                return;
+            }
+        }
+
+        if (horizontalSwipe) {
+            event.preventDefault();
+        }
+    }, { passive: false });
+
+    const finishSwipe = () => {
+        if (!trackingTouch) {
+            horizontalSwipe = false;
+            return;
+        }
+
+        if (horizontalSwipe && Math.abs(deltaX) >= SWIPE_THRESHOLD) {
+            blockProjectCardClickUntil = Date.now() + 450;
+            if (deltaX < 0) moveProjectsNext();
+            else moveProjectsPrev();
+        }
+
+        trackingTouch = false;
+        horizontalSwipe = false;
+    };
+
+    projectsViewport.addEventListener('touchend', finishSwipe);
+    projectsViewport.addEventListener('touchcancel', finishSwipe);
+};
+
+if (projectsPrevBtn && projectsNextBtn && projectsTrack) {
+    projectsPrevBtn.addEventListener('click', moveProjectsPrev);
+    projectsNextBtn.addEventListener('click', moveProjectsNext);
+    projectsTrack.addEventListener('transitionend', handleProjectsTransitionEnd);
+    window.addEventListener('resize', syncProjectsCarouselMode);
+    syncProjectsCarouselMode();
+    setupProjectsSwipe();
+}
 
 // Scroll Reveal Animation (Staggered Waterfall)
 const revealObserver = new IntersectionObserver((entries, observer) => {
