@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="pt-BR"><head>
+<html class="dark" lang="pt-BR">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta name="description" content="Portifólio de Henrique - Fullstack Developer focado em performance, alta escalabilidade e design tático."/>
-<meta property="og:title" content="Henrique | System Terminal"/>
-<meta property="og:description" content="Engenheiro e Desenvolvedor Fullstack focado em interfaces premium e estabilidade no backend."/>
-<title>PORTIFIOLIO_V1.0 // FULLSTACK_DEV</title>
+<meta name="description" content="Portfólio de Henrique Santana, desenvolvedor júnior. Interfaces web com JavaScript, Tailwind e Java, com projetos publicados."/>
+<meta property="og:title" content="Henrique Santana | Desenvolvedor Júnior"/>
+<meta property="og:description" content="Desenvolvedor júnior. Construo interfaces web com JavaScript, Tailwind e Java. Veja os projetos publicados."/>
+<meta property="og:type" content="website"/>
+<title>Henrique Santana | Desenvolvedor Júnior</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link rel="stylesheet" href="style.css">
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script id="tailwind-config">
-    
+
       tailwind.config = {
         darkMode: "class",
         theme: {
@@ -87,69 +89,44 @@
 
 </head>
 <body class="font-body selection:bg-primary-container selection:text-on-primary-fixed">
-<div class="custom-cursor" id="cursor"></div>
-<div class="custom-cursor-dot" id="cursor-dot"></div>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<div class="custom-cursor" id="cursor" aria-hidden="true"></div>
+<div class="custom-cursor-dot" id="cursor-dot" aria-hidden="true"></div>
 
 <!-- MOBILE MENU OVERLAY -->
-<div class="mobile-menu-overlay" id="mobile-menu">
-    <button id="close-menu" class="absolute top-8 right-8 text-white">
-        <span class="material-symbols-outlined text-4xl">close</span>
+<div class="mobile-menu-overlay" id="mobile-menu" aria-label="Menu de navegação" role="dialog" aria-modal="true">
+    <button id="close-menu" class="absolute top-8 right-8 text-white" aria-label="Fechar menu" type="button">
+        <span class="material-symbols-outlined text-4xl" aria-hidden="true">close</span>
     </button>
-    <a href="#hero" class="mobile-menu-link">INÍCIO</a>
-    <a href="#skills" class="mobile-menu-link">HABILIDADES</a>
-    <a href="#timeline" class="mobile-menu-link">TRAJETÓRIA</a>
-    <a href="#tools" class="mobile-menu-link">FERRAMENTAS</a>
-    <a href="#projects" class="mobile-menu-link">PROJETOS</a>
-    <a href="#contact" class="mobile-menu-link">CONECTAR</a>
-    
-    <!-- LINKS SOCIAIS NO MENU MOBILE -->
-    <div class="flex gap-8 mt-8 mobile-social-icons">
-        <a href="https://github.com/henrisantana07" target="_blank" class="group relative p-4 bg-surface-container border border-outline-variant/20 rounded-full hover:border-primary-container/50 transition-all duration-500">
-            <svg class="w-6 h-6 text-[#e2e2e2] group-hover:brightness-125 transition-all" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-                <title>GitHub</title>
-                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-            </svg>
-            <div class="absolute inset-0 bg-primary-container/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        </a>
-        <a href="https://www.linkedin.com/in/henrique-santana-017b45223/" target="_blank" class="group relative p-4 bg-surface-container border border-outline-variant/20 rounded-full hover:border-[#0077B5]/50 transition-all duration-500">
-            <svg class="w-6 h-6 text-[#e2e2e2] group-hover:brightness-125 transition-all" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-                <title>LinkedIn</title>
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-            <div class="absolute inset-0 bg-[#0077B5]/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        </a>
-    </div>
+    <a href="#projects" class="mobile-menu-link">Projetos</a>
+    <a href="#timeline" class="mobile-menu-link">Trajetória</a>
+    <a href="#contact" class="mobile-menu-link">Contato</a>
+    <a href="curriculo.pdf" download="Curriculo_Henrique_Lucas.pdf" class="mobile-menu-link">Currículo</a>
 </div>
 
-<div class="scroll-progress-bar"><div class="scroll-progress-fill" id="progress-fill"></div></div>
+<div class="scroll-progress-bar" aria-hidden="true"><div class="scroll-progress-fill" id="progress-fill"></div></div>
 <header class="fixed top-0 w-full z-50 bg-black/60 backdrop-blur-xl">
-<nav class="flex justify-between items-center px-6 md:px-12 py-6 w-full max-w-[1920px] mx-auto">
-<div class="font-['Space_Grotesk'] font-bold text-xl tracking-tighter text-[#00FF87]">PORTIFÓLIO_V1.0</div>
+<nav class="flex justify-between items-center px-6 md:px-12 py-6 w-full max-w-[1920px] mx-auto" aria-label="Navegação principal">
+<a class="font-['Space_Grotesk'] font-bold text-xl tracking-tighter text-[#00FF87] inline-flex items-center min-h-[44px]" href="#hero">Henrique Santana</a>
 
 <div class="hidden md:flex gap-10" id="nav-links-container">
-<a class="text-[#00FF87] border-b-2 border-[#00FF87] pb-1 font-['JetBrains_Mono'] uppercase text-[10px] tracking-widest transition-all duration-300 hover:drop-shadow-[0_0_15px_rgba(0,255,135,0.4)]" href="#hero">Início</a>
-<a class="text-zinc-500 border-b-2 border-transparent pb-1 font-['JetBrains_Mono'] uppercase text-[10px] tracking-widest hover:text-zinc-200 transition-all duration-300" href="#skills">Habilidades</a>
-<a class="text-zinc-500 border-b-2 border-transparent pb-1 font-['JetBrains_Mono'] uppercase text-[10px] tracking-widest hover:text-zinc-200 transition-all duration-300" href="#timeline">Trajetória</a>
-<a class="text-zinc-500 border-b-2 border-transparent pb-1 font-['JetBrains_Mono'] uppercase text-[10px] tracking-widest hover:text-zinc-200 transition-all duration-300" href="#tools">Ferramentas</a>
-<a class="text-zinc-500 border-b-2 border-transparent pb-1 font-['JetBrains_Mono'] uppercase text-[10px] tracking-widest hover:text-zinc-200 transition-all duration-300" href="#projects">Projetos</a>
-<a class="text-zinc-500 border-b-2 border-transparent pb-1 font-['JetBrains_Mono'] uppercase text-[10px] tracking-widest hover:text-zinc-200 transition-all duration-300" href="#contact">Conectar</a>
+<a class="nav-link font-['JetBrains_Mono'] text-xs tracking-widest transition-all duration-300" href="#projects">Projetos</a>
+<a class="nav-link font-['JetBrains_Mono'] text-xs tracking-widest transition-all duration-300" href="#timeline">Trajetória</a>
+<a class="nav-link font-['JetBrains_Mono'] text-xs tracking-widest transition-all duration-300" href="#contact">Contato</a>
+<a class="nav-link font-['JetBrains_Mono'] text-xs tracking-widest transition-all duration-300" href="curriculo.pdf" download="Curriculo_Henrique_Lucas.pdf">Currículo</a>
 </div>
 
-<!-- ACTIONS CONTAINER -->
-<div class="flex items-center gap-4">
-    <a href="#contact" class="hidden md:flex bg-primary-container text-on-primary-fixed px-6 py-2 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest font-bold hover:scale-95 transition-transform duration-200">
-        Contrate-me
-    </a>
-    <!-- MOBILE MENU BUTTON (Moved to right) -->
-    <button id="open-menu" class="md:hidden text-[#00FF87] flex items-center justify-center">
-        <span class="material-symbols-outlined text-3xl">menu</span>
-    </button>
-</div>
+<!-- MOBILE MENU BUTTON -->
+<button id="open-menu" class="md:hidden text-[#00FF87] flex items-center justify-center" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu" type="button">
+    <span class="material-symbols-outlined text-3xl" aria-hidden="true">menu</span>
+</button>
 </nav>
 <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-[#00FF87]/20 to-transparent"></div>
 </header>
-<main class="relative">
-<div class="fixed inset-0 technical-grid pointer-events-none"></div>
+
+<main class="relative" id="conteudo">
+<div class="fixed inset-0 technical-grid pointer-events-none" aria-hidden="true"></div>
+
 <!-- HERO SECTION -->
 <section class="min-h-screen flex flex-col justify-center items-start px-6 md:px-24 relative overflow-hidden" id="hero">
 
@@ -157,440 +134,42 @@
     <canvas id="hero-canvas" aria-hidden="true"></canvas>
 
     <!-- Overlay for text legibility -->
-    <div id="hero-overlay"></div>
+    <div id="hero-overlay" aria-hidden="true"></div>
 
     <!-- Edge vignette blur -->
-    <div class="section-edge-vignette"></div>
-
-    <!-- Frame counter (cinematic touch) -->
-
+    <div class="section-edge-vignette" aria-hidden="true"></div>
 
     <!-- Content -->
     <div class="z-10 max-w-5xl relative" style="z-index:5">
-        <p class="font-label text-primary-container mb-4 text-xs md:text-sm tracking-[0.3em] uppercase">Status do Sistema: Ativo</p>
-        <h1 class="font-headline text-3xl sm:text-4xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] mb-6 break-words" data-text="HENRIQUE LUCAS SANTANA DA SILVA" id="glitch-name">HENRIQUE LUCAS SANTANA DA SILVA</h1>
-        <h2 class="font-headline text-2xl md:text-5xl text-on-surface-variant/80 mb-12 tracking-tight">Em busca de crescimento profissional na área de T.I.</h2>
+        <h1 class="font-headline text-3xl sm:text-4xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] mb-6 break-words" id="glitch-name">HENRIQUE LUCAS SANTANA DA SILVA</h1>
+        <p class="font-headline text-2xl md:text-5xl text-on-surface-variant/80 mb-12 tracking-tight max-w-3xl">Desenvolvedor júnior. Construo interfaces web com JavaScript, Tailwind e Java.</p>
         <div class="flex flex-wrap gap-6">
             <a class="group relative px-8 py-4 bg-primary-container text-on-primary-fixed font-label font-bold uppercase text-sm tracking-widest overflow-hidden" href="#projects">
-                <span class="relative z-10">Ver Projetos</span>
-                <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></div>
-            </a>
-            <a class="px-8 py-4 border border-outline-variant text-on-surface font-label uppercase text-sm tracking-widest hover:bg-surface-container transition-colors" href="#contact">
-                Entrar em Contato
+                <span class="relative z-10">Ver projetos</span>
+                <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity" aria-hidden="true"></div>
             </a>
         </div>
     </div>
 
-    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-40" style="z-index:5">
-        <span class="material-symbols-outlined text-primary">keyboard_double_arrow_down</span>
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-40" style="z-index:5" aria-hidden="true">
+        <span class="material-symbols-outlined text-primary" aria-hidden="true">keyboard_double_arrow_down</span>
     </div>
 
 </section>
-<!-- SKILLS SECTION -->
-<section class="py-32 px-6 md:px-24 bg-surface-container-lowest" id="skills">
-<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
-<div>
-<span class="font-label text-secondary text-xs tracking-[0.4em] uppercase mb-4 block">Competências</span>
-<h2 class="font-headline text-2xl sm:text-3xl md:text-6xl font-bold tracking-tighter break-words">Stack_Técnica</h2>
-</div>
-<p class="max-w-md text-on-surface-variant font-body leading-relaxed">
-                    Desenvolvendo bases sólidas em programação e infraestrutura de dados para soluções escaláveis.
-                </p>
-</div>
-<div class="relative w-full overflow-hidden flex items-center reveal-up">
-<!-- Máscaras de gradiente para suavidade -->
-<div class="absolute left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-surface-container-lowest to-transparent z-10 pointer-events-none"></div>
-<div class="absolute right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-surface-container-lowest to-transparent z-10 pointer-events-none"></div>
 
-<div class="flex gap-4 md:gap-8 min-w-max animate-marquee">
-<!-- Original 5 Cards -->
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-primary-container/40 transition-all duration-500">
-<div class="mb-8">
-<span class="material-symbols-outlined text-primary-container text-4xl">terminal</span>
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">Java</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Back-end Foundation</p>
-</div>
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-primary-container/40 transition-all duration-500">
-<div class="mb-8">
-<span class="material-symbols-outlined text-primary-container text-4xl">database</span>
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">SQL</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Banco de Dados</p>
-</div>
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-primary-container/40 transition-all duration-500">
-<div class="mb-8">
-<span class="material-symbols-outlined text-primary-container text-4xl">psychology</span>
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">Lógica</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Programação Core</p>
-</div>
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-secondary/40 transition-all duration-500">
-<div class="mb-8">
-<span class="material-symbols-outlined text-secondary text-4xl">schema</span>
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">Algoritmos</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Resolução de Problemas</p>
-</div>
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-secondary/40 transition-all duration-500">
-<div class="mb-8">
-<span class="material-symbols-outlined text-secondary text-4xl">description</span>
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">Documentação</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Padrões de TI</p>
-</div>
-
-<!-- Duplicados para Loop Infinito -->
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-primary-container/40 transition-all duration-500">
-<div class="mb-8">
-<span class="material-symbols-outlined text-primary-container text-4xl">terminal</span>
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">Java</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Back-end Foundation</p>
-</div>
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-primary-container/40 transition-all duration-500">
-<div class="mb-8">
-<span class="material-symbols-outlined text-primary-container text-4xl">database</span>
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">SQL</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Banco de Dados</p>
-</div>
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-primary-container/40 transition-all duration-500">
-<div class="mb-8">
-<span class="material-symbols-outlined text-primary-container text-4xl">psychology</span>
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">Lógica</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Programação Core</p>
-</div>
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-secondary/40 transition-all duration-500">
-<div class="mb-8">
-<span class="material-symbols-outlined text-secondary text-4xl">schema</span>
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">Algoritmos</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Resolução de Problemas</p>
-</div>
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-secondary/40 transition-all duration-500">
-<div class="mb-8">
-<span class="material-symbols-outlined text-secondary text-4xl">description</span>
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">Documentação</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Padrões de TI</p>
-</div>
-</div>
-</div>
-</section>
-<!-- TIMELINE SECTION -->
-<section class="py-32 px-6 md:px-24 relative overflow-hidden" id="timeline">
-
-    <!-- Scroll-Driven Frame Background -->
-    <canvas id="timeline-canvas" class="section-frame-canvas" aria-hidden="true"></canvas>
-    <div class="section-frame-overlay" id="timeline-overlay" style="background:linear-gradient(105deg,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.6) 50%,rgba(0,0,0,0.82) 100%),linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 15%,rgba(0,0,0,0.3) 85%,rgba(0,0,0,0.7) 100%)"></div>
-
-    <!-- Edge vignette blur -->
-    <div class="section-edge-vignette"></div>
-
-<div class="mb-24 relative" style="z-index:5">
-<span class="font-label text-primary-container text-xs tracking-[0.4em] uppercase mb-4 block">Histórico</span>
-<h2 class="font-headline text-2xl sm:text-3xl md:text-6xl font-bold tracking-tighter break-words">Jornada_Log</h2>
-</div>
-<div class="relative max-w-4xl mx-auto pl-8 md:pl-0" style="z-index:5">
-    <!-- Vertical Glow Line -->
-    <div class="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#00FF87] via-[#9B5DE5] to-[#9B5DE5] transform md:-translate-x-1/2 shadow-[0_0_15px_rgba(155,93,229,0.8)]"></div>
-
-    <!-- Timeline Item 1: Ensino Médio -->
-    <div class="relative mb-32 flex flex-col md:flex-row justify-between items-center w-full group">
-        <!-- Connecting Horizontal Line (desktop) -->
-        <div class="hidden md:block absolute left-1/2 top-10 w-8 h-[2px] bg-[#00FF87] shadow-[0_0_8px_#00FF87] z-0"></div>
-        
-        <!-- Left Side: Icon -->
-        <div class="hidden md:flex w-[45%] justify-end pr-12 items-center">
-            <div class="relative flex items-center justify-center -mr-6">
-                <!-- Book Icon -->
-                <span class="material-symbols-outlined text-5xl text-[#00FF87] drop-shadow-[0_0_8px_#00FF87]">menu_book</span>
-                <!-- Wifi wave -->
-                <span class="material-symbols-outlined absolute -right-8 text-2xl text-[#00FF87] animate-pulse">wifi</span>
-            </div>
-        </div>
-        
-        <!-- Central Node (Hexagon) -->
-        <div class="absolute left-0 md:left-1/2 top-6 md:top-8 transform md:-translate-x-1/2 z-10 flex items-center justify-center filter drop-shadow-[0_0_8px_#00FF87]">
-            <div class="w-8 h-8 bg-black flex items-center justify-center relative transition-transform duration-300 group-hover:scale-110" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
-                <div class="absolute inset-[2px] bg-[#00FF87] flex items-center justify-center" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
-                    <div class="absolute inset-[3px] bg-black" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"></div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Card Content -->
-        <div class="w-full md:w-[45%] pl-12 md:pl-12 mt-8 md:mt-0">
-            <div class="relative border-2 border-[#00FF87]/80 rounded-xl p-6 bg-black/60 backdrop-blur-md shadow-[0_0_20px_rgba(0,255,135,0.15),inset_0_0_15px_rgba(0,255,135,0.1)] hover:shadow-[0_0_30px_rgba(0,255,135,0.3),inset_0_0_20px_rgba(0,255,135,0.2)] transition-shadow duration-500">
-                <!-- Tech Corners -->
-                <div class="absolute -top-[2px] -left-[2px] w-4 h-4 border-t-2 border-l-2 border-[#00FF87]"></div>
-                <div class="absolute -bottom-[2px] -right-[2px] w-4 h-4 border-b-2 border-r-2 border-[#00FF87]"></div>
-                <!-- Small accents inside -->
-                <div class="absolute right-4 top-4 flex gap-1 opacity-70">
-                    <div class="w-6 h-[2px] bg-[#00FF87]"></div><div class="w-2 h-[2px] bg-[#00FF87]"></div>
-                </div>
-
-                <h3 class="font-headline text-[13px] font-bold mb-3 text-white uppercase tracking-wider relative z-10">
-                    FORMAÇÃO ACADÊMICA: ENSINO MÉDIO
-                </h3>
-                <!-- Badge de período -->
-                <div class="flex items-center gap-2 mb-3">
-                    <span class="material-symbols-outlined text-[#00FF87] text-[14px]">calendar_month</span>
-                    <span class="font-label text-[10px] text-[#00FF87] uppercase tracking-widest">Fev 2023</span>
-                    <span class="font-label text-[10px] text-zinc-500 uppercase">→</span>
-                    <span class="font-label text-[10px] text-[#00FF87] uppercase tracking-widest">Dez 2025</span>
-                </div>
-                <p class="font-headline text-[#00FF87] font-bold text-xl mb-1 drop-shadow-[0_0_5px_rgba(0,255,135,0.5)]">Hilda Miranda Nascimento</p>
-                <p class="font-body text-zinc-300 text-xs mb-1">Porto Canoa, Serra - ES</p>
-                <p class="font-body text-zinc-300 text-xs mb-3">Formação Integral em Manutenção</p>
-                <p class="font-body text-[#9B5DE5] font-semibold text-xs">Status: Formado</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Timeline Item 2: IBDH -->
-    <div class="relative mb-32 flex flex-col md:flex-row-reverse justify-between items-center w-full group">
-        <!-- Connecting Horizontal Line (desktop) -->
-        <div class="hidden md:block absolute right-1/2 top-10 w-8 h-[2px] bg-[#9B5DE5] shadow-[0_0_8px_#9B5DE5] z-0"></div>
-        
-        <!-- Right Side: Icon -->
-        <div class="hidden md:flex w-[45%] justify-start pl-12 items-center">
-            <div class="relative flex items-center justify-center -ml-6 flex-row-reverse">
-                <span class="material-symbols-outlined text-5xl text-[#9B5DE5] drop-shadow-[0_0_8px_#9B5DE5]">integration_instructions</span>
-                <span class="material-symbols-outlined absolute -left-8 text-2xl text-[#9B5DE5] animate-pulse" style="transform: scaleX(-1);">wifi</span>
-            </div>
-        </div>
-        
-        <!-- Central Node (Hexagon) -->
-        <div class="absolute left-[-5px] md:left-1/2 top-6 md:top-8 transform md:-translate-x-1/2 z-10 flex items-center justify-center filter drop-shadow-[0_0_8px_#9B5DE5]">
-            <div class="w-8 h-8 bg-black flex items-center justify-center relative transition-transform duration-300 group-hover:scale-110" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
-                <div class="absolute inset-[2px] bg-[#9B5DE5] flex items-center justify-center" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
-                    <div class="absolute inset-[3px] bg-black" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"></div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Card Content -->
-        <div class="w-full md:w-[45%] pl-12 md:pl-0 pr-0 md:pr-12 mt-8 md:mt-0 text-left">
-            <div class="relative border-2 border-[#9B5DE5]/80 rounded-xl p-6 bg-black/60 backdrop-blur-md shadow-[0_0_20px_rgba(155,93,229,0.15),inset_0_0_15px_rgba(155,93,229,0.1)] hover:shadow-[0_0_30px_rgba(155,93,229,0.3),inset_0_0_20px_rgba(155,93,229,0.2)] transition-shadow duration-500">
-                <!-- Tech Corners -->
-                <div class="absolute -top-[2px] -left-[2px] w-4 h-4 border-t-2 border-l-2 border-[#9B5DE5]"></div>
-                <div class="absolute -bottom-[2px] -right-[2px] w-4 h-4 border-b-2 border-r-2 border-[#9B5DE5]"></div>
-                <!-- Small accents inside -->
-                <div class="absolute left-4 top-4 flex gap-1 opacity-70">
-                    <div class="w-2 h-[2px] bg-[#9B5DE5]"></div><div class="w-6 h-[2px] bg-[#9B5DE5]"></div>
-                </div>
-
-                <h3 class="font-headline text-[13px] font-bold mb-3 text-white uppercase tracking-wider relative z-10">
-                    FORMAÇÃO PROFISSIONAL: IBDH
-                </h3>
-                <!-- Badge de período -->
-                <div class="flex items-center gap-2 mb-3">
-                    <span class="material-symbols-outlined text-[#9B5DE5] text-[14px]">calendar_month</span>
-                    <span class="font-label text-[10px] text-[#9B5DE5] uppercase tracking-widest">17 Nov 2022</span>
-                    <span class="font-label text-[10px] text-zinc-500 uppercase">→</span>
-                    <span class="font-label text-[10px] text-[#9B5DE5] uppercase tracking-widest">21 Fev 2024</span>
-                </div>
-                <p class="font-body text-white font-bold text-[15px] mb-1 leading-snug">Instituto Brasileiro de Desenvolvimento Humano (IBDH)</p>
-                <p class="font-headline text-[#9B5DE5] font-bold text-xl mb-2 drop-shadow-[0_0_5px_rgba(155,93,229,0.5)]">Assistente Administrativo</p>
-                <p class="font-body text-zinc-300 text-xs mb-1">Carga Horária: 1280 horas</p>
-                <p class="font-body text-[#00FF87] font-semibold text-xs mb-1">Status: Concluído</p>
-                <p class="font-body text-zinc-300 text-xs">Centro, Vitória ES</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Timeline Item 3: SENAI -->
-    <div class="relative mb-12 flex flex-col md:flex-row justify-between items-center w-full group">
-        <!-- Connecting Horizontal Line -->
-        <div class="hidden md:block absolute left-1/2 top-10 w-8 h-[2px] bg-[#9B5DE5] shadow-[0_0_8px_#9B5DE5] z-0"></div>
-        
-        <!-- Left Side: Icon -->
-        <div class="hidden md:flex w-[45%] justify-end pr-12 items-center">
-            <div class="relative flex items-center justify-center -mr-6">
-               <span class="material-symbols-outlined text-5xl text-[#9B5DE5] drop-shadow-[0_0_8px_#9B5DE5]">developer_board</span>
-               <span class="material-symbols-outlined absolute -right-8 text-2xl text-[#9B5DE5] animate-pulse">wifi</span>
-            </div>
-        </div>
-        
-        <!-- Central Node (Hexagon) -->
-        <div class="absolute left-[-5px] md:left-1/2 top-6 md:top-8 transform md:-translate-x-1/2 z-10 flex items-center justify-center filter drop-shadow-[0_0_8px_#9B5DE5]">
-            <div class="w-8 h-8 bg-black flex items-center justify-center relative transition-transform duration-300 group-hover:scale-110" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
-                <div class="absolute inset-[2px] bg-[#9B5DE5] flex items-center justify-center" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
-                    <div class="absolute inset-[3px] bg-black" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"></div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Card Content -->
-        <div class="w-full md:w-[45%] pl-12 md:pl-12 mt-8 md:mt-0">
-            <div class="relative border-2 border-[#9B5DE5]/80 rounded-xl p-6 bg-black/60 backdrop-blur-md shadow-[0_0_20px_rgba(155,93,229,0.15),inset_0_0_15px_rgba(155,93,229,0.1)] hover:shadow-[0_0_30px_rgba(155,93,229,0.3),inset_0_0_20px_rgba(155,93,229,0.2)] transition-shadow duration-500">
-                <!-- Tech Corners -->
-                <div class="absolute -top-[2px] -left-[2px] w-4 h-4 border-t-2 border-l-2 border-[#9B5DE5]"></div>
-                <div class="absolute -bottom-[2px] -right-[2px] w-4 h-4 border-b-2 border-r-2 border-[#9B5DE5]"></div>
-                <!-- Small code accent inside -->
-                <div class="absolute right-4 top-4 bg-black/50 p-1 border border-[#9B5DE5]/30 rounded flex items-center justify-center">
-                    <span class="material-symbols-outlined text-[#9B5DE5] text-[10px]">code</span>
-                </div>
-
-                <h3 class="font-headline text-[13px] font-bold mb-3 text-white uppercase tracking-wider relative z-10">
-                    FORMAÇÃO ATUAL & APRENDIZAGEM
-                </h3>
-                <!-- Badge de período -->
-                <div class="flex items-center gap-2 mb-3">
-                    <span class="material-symbols-outlined text-[#9B5DE5] text-[14px]">calendar_month</span>
-                    <span class="font-label text-[10px] text-[#9B5DE5] uppercase tracking-widest">Ago 2024</span>
-                    <span class="font-label text-[10px] text-zinc-500 uppercase">→</span>
-                    <span class="font-label text-[10px] text-[#9B5DE5] uppercase tracking-widest">Abr 2026</span>
-                </div>
-                <p class="font-body text-white font-bold text-[17px] mb-1 drop-shadow-[0_0_2px_rgba(255,255,255,0.5)]">SENAI - Beira Mar</p>
-                <p class="font-headline text-[#9B5DE5] font-bold text-lg mb-2 drop-shadow-[0_0_5px_rgba(155,93,229,0.5)]">Cursando: Desenvolvimento de Sistemas</p>
-                <p class="font-body text-zinc-300 text-xs mb-1">Programa de Aprendizagem Industrial</p>
-                <p class="font-body text-zinc-300 text-xs mb-3">Local: Bento Ferreira, Vitória - ES</p>
-                <p class="font-body text-[#9B5DE5] font-semibold text-xs">Jornada: Menor Aprendiz <br class="md:hidden"><span class="font-normal opacity-80">(Ago 2024 - Abr 2026)</span></p>
-                <p class="font-body text-[#00FF87] font-semibold text-xs mb-1">Status: Concluído</p>
-           
-            </div>
-
-        </div>
-    </div>
-</div>
-</section>
-<!-- TOOLS & SKILLS SECTION -->
-<section class="py-32 px-6 md:px-24 bg-surface-container-lowest border-t border-outline-variant/10" id="tools">
-<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
-<div>
-<span class="font-label text-primary-container text-xs tracking-[0.4em] uppercase mb-4 block">Tecnologias</span>
-<h2 class="font-headline text-2xl sm:text-3xl md:text-6xl font-bold tracking-tighter break-words">Habilidades_e_Ferramentas</h2>
-</div>
-<p class="max-w-md text-on-surface-variant font-body leading-relaxed text-justify">
-                    Conjunto de ferramentas e linguagens focadas na criação de interfaces modernas e experiências dinâmicas.
-                </p>
-</div>
-
-<div class="relative w-full overflow-hidden flex items-center reveal-up">
-<!-- Máscaras de gradiente para suavidade -->
-<div class="absolute left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-surface-container-lowest to-transparent z-10 pointer-events-none"></div>
-<div class="absolute right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-surface-container-lowest to-transparent z-10 pointer-events-none"></div>
-
-<div class="flex gap-4 md:gap-8 min-w-max animate-marquee">
-<!-- Original 5 Cards -->
-
-<!-- Tool Card 1 -->
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-primary-container/40 transition-all duration-500">
-<div class="mb-8">
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/html.svg" alt="HTML" class="w-10 h-10">
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">HTML</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Markup Language</p>
-</div>
-<!-- Tool Card 2 -->
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-primary-container/40 transition-all duration-500">
-<div class="mb-8">
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/css.svg" alt="CSS" class="w-10 h-10">
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">CSS</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Styling &amp; Layout</p>
-</div>
-<!-- Tool Card 3 -->
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-primary-container/40 transition-all duration-500">
-<div class="mb-8">
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/tailwindcss.svg" alt="Tailwind" class="w-10 h-10">
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">Tailwind</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Utility-First Framework</p>
-</div>
-<!-- Tool Card 4 -->
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-secondary/40 transition-all duration-500">
-<div class="mb-8">
-    
-<svg id="gsap-logo-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 82 30" class="w-10 h-10">
-  <path fill="#0ae448" d="M23.81 14.013v.013l-1.075 4.665c-.058.264-.322.458-.626.458H20.81a.218.218 0 0 0-.208.155c-1.198 4.064-2.82 6.858-4.962 8.535-1.822 1.428-4.068 2.093-7.069 2.093-2.696 0-4.514-.867-6.056-2.578C.478 25.09-.364 21.388.146 16.926 1.065 8.549 5.41.096 13.776.096c2.545-.023 4.543.762 5.933 2.33 1.47 1.657 2.216 4.154 2.22 7.421a.55.55 0 0 1-.549.536h-6.13a.42.42 0 0 1-.407-.41c-.05-2.259-.72-3.36-2.052-3.36-2.35 0-3.736 3.19-4.471 4.959-1.027 2.47-1.55 5.152-1.447 7.824.049 1.244.249 2.994 1.43 3.718 1.047.643 2.541.217 3.446-.495.904-.711 1.632-1.942 1.938-3.065.043-.156.046-.277.005-.332-.043-.055-.162-.068-.253-.068h-1.574a.572.572 0 0 1-.438-.202.42.42 0 0 1-.087-.362l1.076-4.674c.053-.24.27-.42.537-.453v-.011h10.33c.024 0 .049 0 .072.005.268.034.457.284.452.556h.002Z"/>
-  <path fill="#0ae448" d="M41.594 8.65a.548.548 0 0 1-.548.531H35.4c-.37 0-.679-.3-.679-.665 0-1.648-.57-2.45-1.736-2.45s-1.918.717-1.94 1.968c-.025 1.395.764 2.662 3.01 4.84 2.957 2.774 4.142 5.232 4.085 8.48C38.047 26.605 34.476 30 29.042 30c-2.775 0-4.895-.743-6.305-2.207-1.431-1.486-2.087-3.668-1.95-6.485a.548.548 0 0 1 .549-.53h5.84a.55.55 0 0 1 .422.209.48.48 0 0 1 .106.384c-.065 1.016.112 1.775.512 2.195.256.272.613.41 1.058.41 1.079 0 1.711-.763 1.735-2.09.02-1.148-.343-2.155-2.321-4.19-2.555-2.496-4.846-5.075-4.775-9.13.042-2.351.976-4.502 2.631-6.056C28.294.868 30.687 0 33.465 0c2.783.02 4.892.813 6.269 2.359 1.304 1.466 1.932 3.582 1.862 6.29h-.002Z"/>
-  <path fill="#0ae448" d="m59.096 29.012.037-27.932a.525.525 0 0 0-.529-.533h-8.738c-.294 0-.423.252-.507.42L36.707 28.842v.005l-.005.006c-.14.343.126.71.497.71h6.108c.33 0 .548-.1.656-.308l1.213-2.915c.149-.388.177-.424.601-.424h5.836c.406 0 .415.008.408.405l-.131 2.71a.525.525 0 0 0 .529.532h6.17a.522.522 0 0 0 .403-.182.458.458 0 0 0 .104-.369Zm-10.81-9.326c-.057 0-.102-.001-.138-.005a.146.146 0 0 1-.13-.183c.012-.041.029-.095.053-.163l4.377-10.827c.038-.107.086-.212.136-.314.071-.145.157-.155.184-.047.023.09-.502 11.118-.502 11.118-.041.413-.06.43-.467.464l-3.509-.041h-.008l.003-.002Z"/>
-  <path fill="#0ae448" d="M71.545.547h-4.639c-.245 0-.52.13-.585.422l-6.455 28.029a.423.423 0 0 0 .088.364.572.572 0 0 0 .437.202h5.798c.311 0 .525-.153.583-.418 0 0 .703-3.168.704-3.178.05-.247-.036-.439-.258-.555-.105-.054-.209-.108-.312-.163l-1.005-.522-1-.522-.387-.201a.186.186 0 0 1-.102-.17.199.199 0 0 1 .198-.194l3.178.014c.95.005 1.901-.062 2.836-.234 6.58-1.215 10.95-6.485 11.076-13.656.107-6.12-3.309-9.221-10.15-9.221l-.005.003Zm-1.579 16.68h-.124c-.278 0-.328-.03-.337-.04-.004-.007 1.833-8.073 1.834-8.084.047-.233.045-.367-.099-.446-.184-.102-2.866-1.516-2.866-1.516a.188.188 0 0 1-.101-.172.197.197 0 0 1 .197-.192h4.241c1.32.04 2.056 1.221 2.021 3.237-.061 3.492-1.721 7.09-4.766 7.214Z"/>
-</svg>
-
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">GSAP</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Web Animation</p>
-</div>
-<!-- Tool Card 5 -->
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-secondary/40 transition-all duration-500">
-<div class="mb-8">
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/javascript.svg" alt="JavaScript" class="w-10 h-10">
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">JavaScript</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Programming Language</p>
-</div>
-
-
-<!-- Duplicados para Loop Infinito -->
-
-<!-- Tool Card 1 -->
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-primary-container/40 transition-all duration-500">
-<div class="mb-8">
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/html.svg" alt="HTML" class="w-10 h-10">
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">HTML</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Markup Language</p>
-</div>
-<!-- Tool Card 2 -->
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-primary-container/40 transition-all duration-500">
-<div class="mb-8">
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/css.svg" alt="CSS" class="w-10 h-10">
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">CSS</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Styling &amp; Layout</p>
-</div>
-<!-- Tool Card 3 -->
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-primary-container/40 transition-all duration-500">
-<div class="mb-8">
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/tailwindcss.svg" alt="Tailwind" class="w-10 h-10">
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">Tailwind</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Utility-First Framework</p>
-</div>
-<!-- Tool Card 4 -->
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-secondary/40 transition-all duration-500">
-<div class="mb-8">
-<svg id="gsap-logo-svg-clone" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 82 30" class="w-10 h-10">
-  <path fill="#0ae448" d="M23.81 14.013v.013l-1.075 4.665c-.058.264-.322.458-.626.458H20.81a.218.218 0 0 0-.208.155c-1.198 4.064-2.82 6.858-4.962 8.535-1.822 1.428-4.068 2.093-7.069 2.093-2.696 0-4.514-.867-6.056-2.578C.478 25.09-.364 21.388.146 16.926 1.065 8.549 5.41.096 13.776.096c2.545-.023 4.543.762 5.933 2.33 1.47 1.657 2.216 4.154 2.22 7.421a.55.55 0 0 1-.549.536h-6.13a.42.42 0 0 1-.407-.41c-.05-2.259-.72-3.36-2.052-3.36-2.35 0-3.736 3.19-4.471 4.959-1.027 2.47-1.55 5.152-1.447 7.824.049 1.244.249 2.994 1.43 3.718 1.047.643 2.541.217 3.446-.495.904-.711 1.632-1.942 1.938-3.065.043-.156.046-.277.005-.332-.043-.055-.162-.068-.253-.068h-1.574a.572.572 0 0 1-.438-.202.42.42 0 0 1-.087-.362l1.076-4.674c.053-.24.27-.42.537-.453v-.011h10.33c.024 0 .049 0 .072.005.268.034.457.284.452.556h.002Z"/>
-  <path fill="#0ae448" d="M41.594 8.65a.548.548 0 0 1-.548.531H35.4c-.37 0-.679-.3-.679-.665 0-1.648-.57-2.45-1.736-2.45s-1.918.717-1.94 1.968c-.025 1.395.764 2.662 3.01 4.84 2.957 2.774 4.142 5.232 4.085 8.48C38.047 26.605 34.476 30 29.042 30c-2.775 0-4.895-.743-6.305-2.207-1.431-1.486-2.087-3.668-1.95-6.485a.548.548 0 0 1 .549-.53h5.84a.55.55 0 0 1 .422.209.48.48 0 0 1 .106.384c-.065 1.016.112 1.775.512 2.195.256.272.613.41 1.058.41 1.079 0 1.711-.763 1.735-2.09.02-1.148-.343-2.155-2.321-4.19-2.555-2.496-4.846-5.075-4.775-9.13.042-2.351.976-4.502 2.631-6.056C28.294.868 30.687 0 33.465 0c2.783.02 4.892.813 6.269 2.359 1.304 1.466 1.932 3.582 1.862 6.29h-.002Z"/>
-  <path fill="#0ae448" d="m59.096 29.012.037-27.932a.525.525 0 0 0-.529-.533h-8.738c-.294 0-.423.252-.507.42L36.707 28.842v.005l-.005.006c-.14.343.126.71.497.71h6.108c.33 0 .548-.1.656-.308l1.213-2.915c.149-.388.177-.424.601-.424h5.836c.406 0 .415.008.408.405l-.131 2.71a.525.525 0 0 0 .529.532h6.17a.522.522 0 0 0 .403-.182.458.458 0 0 0 .104-.369Zm-10.81-9.326c-.057 0-.102-.001-.138-.005a.146.146 0 0 1-.13-.183c.012-.041.029-.095.053-.163l4.377-10.827c.038-.107.086-.212.136-.314.071-.145.157-.155.184-.047.023.09-.502 11.118-.502 11.118-.041.413-.06.43-.467.464l-3.509-.041h-.008l.003-.002Z"/>
-  <path fill="#0ae448" d="M71.545.547h-4.639c-.245 0-.52.13-.585.422l-6.455 28.029a.423.423 0 0 0 .088.364.572.572 0 0 0 .437.202h5.798c.311 0 .525-.153.583-.418 0 0 .703-3.168.704-3.178.05-.247-.036-.439-.258-.555-.105-.054-.209-.108-.312-.163l-1.005-.522-1-.522-.387-.201a.186.186 0 0 1-.102-.17.199.199 0 0 1 .198-.194l3.178.014c.95.005 1.901-.062 2.836-.234 6.58-1.215 10.95-6.485 11.076-13.656.107-6.12-3.309-9.221-10.15-9.221l-.005.003Zm-1.579 16.68h-.124c-.278 0-.328-.03-.337-.04-.004-.007 1.833-8.073 1.834-8.084.047-.233.045-.367-.099-.446-.184-.102-2.866-1.516-2.866-1.516a.188.188 0 0 1-.101-.172.197.197 0 0 1 .197-.192h4.241c1.32.04 2.056 1.221 2.021 3.237-.061 3.492-1.721 7.09-4.766 7.214Z"/>
-</svg>
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">GSAP</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Web Animation</p>
-</div>
-<!-- Tool Card 5 -->
-<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/10 hover:border-secondary/40 transition-all duration-500">
-<div class="mb-8">
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/javascript.svg" alt="JavaScript" class="w-10 h-10">
-</div>
-<h3 class="font-headline text-xl font-bold mb-2">JavaScript</h3>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-widest">Programming Language</p>
-</div>
-
-</div>
-</div>
-</section>
 <!-- PROJECTS SECTION -->
 <section class="py-32 px-6 md:px-24 bg-surface-container-lowest" id="projects">
-<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-8">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
 <div>
 <span class="font-label text-primary-container text-xs tracking-[0.4em] uppercase mb-4 block">Portfólio</span>
-<h2 class="font-headline text-2xl sm:text-3xl md:text-6xl font-bold tracking-tighter break-words">Trabalhos_Recentes</h2>
+<h2 class="font-headline text-2xl sm:text-3xl md:text-6xl font-bold tracking-tighter break-words">Projetos recentes</h2>
 </div>
-<div class="flex gap-4">
-<button id="projects-prev" aria-label="Projeto anterior" class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary-container hover:text-on-primary-fixed transition-colors">
-<span class="material-symbols-outlined">arrow_back</span>
+<div class="flex gap-4 lg:hidden">
+<button id="projects-prev" aria-label="Projeto anterior" type="button" class="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-primary-container hover:text-on-primary-fixed transition-colors">
+<span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
 </button>
-<button id="projects-next" aria-label="Próximo projeto" class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-primary-container hover:text-on-primary-fixed transition-colors">
-<span class="material-symbols-outlined">arrow_forward</span>
+<button id="projects-next" aria-label="Próximo projeto" type="button" class="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-primary-container hover:text-on-primary-fixed transition-colors">
+<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
 </button>
 </div>
 </div>
@@ -599,186 +178,496 @@
 <!-- Project Card 1 -->
 <div class="group relative bg-surface-container overflow-hidden" data-project-url="https://contos-derry-1.vercel.app/">
 <div class="aspect-video overflow-hidden">
-<img loading="lazy" alt="Landing page do projeto Contos Derry" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="captura da landing page do projeto Contos Derry com visual escuro e destaques em roxo" src="image/Derry.png"/>
+<img loading="lazy" alt="Landing page do projeto Contos Derry, com visual escuro e destaques em roxo" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" src="image/Derry.png"/>
 </div>
 <div class="p-8">
 <div class="flex gap-2 mb-4">
-<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-primary-container">LIVRARIA TERROR</span>
-<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-secondary">E-COMMERCE</span>
+<span class="px-2 py-1 bg-surface-container-high font-label text-[11px] text-primary-container">LIVRARIA DE TERROR</span>
+<span class="px-2 py-1 bg-surface-container-high font-label text-[11px] text-secondary">E-COMMERCE</span>
 </div>
 <h3 class="font-headline text-2xl font-bold mb-4">Contos Derry</h3>
-<p class="font-body text-on-surface-variant text-sm mb-8 leading-relaxed">Landing page temática para livraria de terror, com vitrine de coleções, destaques de títulos e navegação responsiva.</p>
+<p class="font-body text-on-surface-variant text-base mb-8 leading-relaxed">Landing page temática para livraria de terror, com vitrine de coleções, destaques de títulos e navegação responsiva.</p>
 <div class="flex justify-between items-center">
-<a class="font-label text-xs uppercase tracking-widest text-primary-container hover:underline" href="https://contos-derry-1.vercel.app/" target="_blank" rel="noopener noreferrer">View Case</a>
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-on-surface-variant hover:text-on-surface cursor-pointer" data-icon="code">code</span>
-<a href="https://contos-derry-1.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir projeto Contos Derry em nova aba" class="text-on-surface-variant hover:text-on-surface transition-colors">
-<span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span>
+<a class="font-label text-sm tracking-wide text-primary-container hover:underline inline-flex items-center min-h-[44px]" href="https://contos-derry-1.vercel.app/" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+<a href="https://contos-derry-1.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o projeto Contos Derry em nova aba" class="text-on-surface-variant hover:text-on-surface transition-colors p-2.5 -m-2.5">
+<span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
 </a>
 </div>
 </div>
-</div>
-<div class="absolute inset-0 border border-primary-container/0 group-hover:border-primary-container/40 pointer-events-none transition-colors duration-500"></div>
+<div class="absolute inset-0 border border-primary-container/0 group-hover:border-primary-container/40 pointer-events-none transition-colors duration-500" aria-hidden="true"></div>
 </div>
 <!-- Project Card 2 -->
 <div class="group relative bg-surface-container overflow-hidden" data-project-url="https://vectra4-1.vercel.app/">
 <div class="aspect-video overflow-hidden">
-<img loading="lazy" alt="Landing page do projeto Vectra" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="captura da landing page do projeto Vectra com gradiente azul e chamada principal" src="image/Vectra.png"/>
+<img loading="lazy" alt="Landing page do projeto Vectra, com gradiente azul e chamada principal" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" src="image/Vectra.png"/>
 </div>
 <div class="p-8">
 <div class="flex gap-2 mb-4">
-<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-primary-container">AUTOMAÇÃO</span>
-<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-secondary">LOGÍSTICA</span>
+<span class="px-2 py-1 bg-surface-container-high font-label text-[11px] text-primary-container">AUTOMAÇÃO</span>
+<span class="px-2 py-1 bg-surface-container-high font-label text-[11px] text-secondary">LOGÍSTICA</span>
 </div>
 <h3 class="font-headline text-2xl font-bold mb-4">Vectra</h3>
-<p class="font-body text-on-surface-variant text-sm mb-8 leading-relaxed">Landing page para solução de automação logística, com foco em apresentação de funcionalidades, proposta de valor e contato comercial.</p>
+<p class="font-body text-on-surface-variant text-base mb-8 leading-relaxed">Landing page para solução de automação logística, com foco em funcionalidades, proposta de valor e contato comercial.</p>
 <div class="flex justify-between items-center">
-<a class="font-label text-xs uppercase tracking-widest text-primary-container hover:underline" href="https://vectra4-1.vercel.app/" target="_blank" rel="noopener noreferrer">View Case</a>
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-on-surface-variant hover:text-on-surface cursor-pointer" data-icon="code">code</span>
-<a href="https://vectra4-1.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir projeto Vectra em nova aba" class="text-on-surface-variant hover:text-on-surface transition-colors">
-<span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span>
+<a class="font-label text-sm tracking-wide text-primary-container hover:underline inline-flex items-center min-h-[44px]" href="https://vectra4-1.vercel.app/" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+<a href="https://vectra4-1.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o projeto Vectra em nova aba" class="text-on-surface-variant hover:text-on-surface transition-colors p-2.5 -m-2.5">
+<span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
 </a>
 </div>
 </div>
+<div class="absolute inset-0 border border-primary-container/0 group-hover:border-primary-container/40 pointer-events-none transition-colors duration-500" aria-hidden="true"></div>
 </div>
-<div class="absolute inset-0 border border-primary-container/0 group-hover:border-primary-container/40 pointer-events-none transition-colors duration-500"></div>
-</div>
-<!-- Project Card 3 -->
-<div class="group relative bg-surface-container overflow-hidden">
+<!-- Project Card 3: EmberMusic -->
+<div class="group relative bg-surface-container overflow-hidden" data-project-url="https://ember-music-five.vercel.app/">
 <div class="aspect-video overflow-hidden">
-<img loading="lazy" alt="Imagem de projeto em breve" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="arte indicando novo case em breve" src="image/em-breve.svg"/>
+<img loading="lazy" alt="Tela do EmberMusic com busca, barra lateral de playlists e login com Google" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" src="image/ember-music.png"/>
 </div>
 <div class="p-8">
 <div class="flex gap-2 mb-4">
-<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-primary-container">EM PLANEJAMENTO</span>
-<span class="px-2 py-1 bg-surface-container-high font-label text-[10px] text-secondary">PRÓXIMO LANÇAMENTO</span>
+<span class="px-2 py-1 bg-surface-container-high font-label text-[11px] text-primary-container">MÚSICA</span>
+<span class="px-2 py-1 bg-surface-container-high font-label text-[11px] text-secondary">PLAYER WEB</span>
 </div>
-<h3 class="font-headline text-2xl font-bold mb-4">Projeto Futuro</h3>
-<p class="font-body text-on-surface-variant text-sm mb-8 leading-relaxed">Espaço reservado para o próximo case do portfólio, com foco em solução real, performance e experiência moderna para usuários.</p>
+<h3 class="font-headline text-2xl font-bold mb-4">EmberMusic</h3>
+<p class="font-body text-on-surface-variant text-base mb-8 leading-relaxed">Aplicação web de música com player, busca, playlists, artistas e biblioteca local. Login com Google e layout responsivo.</p>
 <div class="flex justify-between items-center">
-<span class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Atualização em breve</span>
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-on-surface-variant" data-icon="rocket_launch">rocket_launch</span>
-<span class="material-symbols-outlined text-on-surface-variant" data-icon="schedule">schedule</span>
+<a class="font-label text-sm tracking-wide text-primary-container hover:underline inline-flex items-center min-h-[44px]" href="https://ember-music-five.vercel.app/" target="_blank" rel="noopener noreferrer">Ver projeto</a>
+<a href="https://ember-music-five.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Abrir o projeto EmberMusic em nova aba" class="text-on-surface-variant hover:text-on-surface transition-colors p-2.5 -m-2.5">
+<span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
+</a>
 </div>
 </div>
-</div>
-<div class="absolute inset-0 border border-primary-container/0 group-hover:border-primary-container/40 pointer-events-none transition-colors duration-500"></div>
+<div class="absolute inset-0 border border-primary-container/0 group-hover:border-primary-container/40 pointer-events-none transition-colors duration-500" aria-hidden="true"></div>
 </div>
 </div>
 </div>
 </section>
-<!-- ESTABLISH_LINK SECTION -->
+
+<!-- SKILLS SECTION -->
+<section class="py-32 px-6 md:px-24 bg-surface-container-lowest border-t border-outline-variant/10" id="skills">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
+<div>
+<span class="font-label text-secondary text-xs tracking-[0.4em] uppercase mb-4 block">Competências</span>
+<h2 class="font-headline text-2xl sm:text-3xl md:text-6xl font-bold tracking-tighter break-words">Habilidades</h2>
+</div>
+<p class="max-w-md text-on-surface-variant text-base font-body leading-relaxed">
+                    Ferramentas e linguagens que uso para construir interfaces e resolver problemas.
+                </p>
+</div>
+<div class="relative w-full overflow-hidden flex items-center reveal-up">
+<!-- Máscaras de gradiente para suavidade -->
+<div class="absolute left-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-r from-surface-container-lowest to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
+<div class="absolute right-0 top-0 bottom-0 w-12 md:w-32 bg-gradient-to-l from-surface-container-lowest to-transparent z-10 pointer-events-none" aria-hidden="true"></div>
+
+<div class="flex gap-4 md:gap-8 min-w-max animate-marquee" id="skills-marquee">
+<!-- Java -->
+<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/20 hover:border-primary-container/40 transition-all duration-500">
+<div class="mb-8">
+<span class="material-symbols-outlined text-primary-container text-4xl" aria-hidden="true">terminal</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">Java</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Back-end</p>
+</div>
+<!-- SQL -->
+<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/20 hover:border-primary-container/40 transition-all duration-500">
+<div class="mb-8">
+<span class="material-symbols-outlined text-primary-container text-4xl" aria-hidden="true">database</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">SQL</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Banco de dados</p>
+</div>
+<!-- JavaScript -->
+<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/20 hover:border-primary-container/40 transition-all duration-500">
+<div class="mb-8">
+<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/javascript.svg" alt="" class="w-10 h-10" width="40" height="40">
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">JavaScript</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Linguagem de programação</p>
+</div>
+<!-- HTML -->
+<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/20 hover:border-primary-container/40 transition-all duration-500">
+<div class="mb-8">
+<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/html.svg" alt="" class="w-10 h-10" width="40" height="40">
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">HTML</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Estrutura de páginas</p>
+</div>
+<!-- CSS -->
+<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/20 hover:border-primary-container/40 transition-all duration-500">
+<div class="mb-8">
+<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/css.svg" alt="" class="w-10 h-10" width="40" height="40">
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">CSS</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Estilo e layout</p>
+</div>
+<!-- Tailwind -->
+<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/20 hover:border-primary-container/40 transition-all duration-500">
+<div class="mb-8">
+<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/tailwindcss.svg" alt="" class="w-10 h-10" width="40" height="40">
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">Tailwind</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Framework de estilos</p>
+</div>
+<!-- GSAP -->
+<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/20 hover:border-secondary/40 transition-all duration-500">
+<div class="mb-8">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 82 30" class="w-10 h-10" aria-hidden="true" focusable="false">
+  <path fill="#0ae448" d="M23.81 14.013v.013l-1.075 4.665c-.058.264-.322.458-.626.458H20.81a.218.218 0 0 0-.208.155c-1.198 4.064-2.82 6.858-4.962 8.535-1.822 1.428-4.068 2.093-7.069 2.093-2.696 0-4.514-.867-6.056-2.578C.478 25.09-.364 21.388.146 16.926 1.065 8.549 5.41.096 13.776.096c2.545-.023 4.543.762 5.933 2.33 1.47 1.657 2.216 4.154 2.22 7.421a.55.55 0 0 1-.549.536h-6.13a.42.42 0 0 1-.407-.41c-.05-2.259-.72-3.36-2.052-3.36-2.35 0-3.736 3.19-4.471 4.959-1.027 2.47-1.55 5.152-1.447 7.824.049 1.244.249 2.994 1.43 3.718 1.047.643 2.541.217 3.446-.495.904-.711 1.632-1.942 1.938-3.065.043-.156.046-.277.005-.332-.043-.055-.162-.068-.253-.068h-1.574a.572.572 0 0 1-.438-.202.42.42 0 0 1-.087-.362l1.076-4.674c.053-.24.27-.42.537-.453v-.011h10.33c.024 0 .049 0 .072.005.268.034.457.284.452.556h.002Z"/>
+  <path fill="#0ae448" d="M41.594 8.65a.548.548 0 0 1-.548.531H35.4c-.37 0-.679-.3-.679-.665 0-1.648-.57-2.45-1.736-2.45s-1.918.717-1.94 1.968c-.025 1.395.764 2.662 3.01 4.84 2.957 2.774 4.142 5.232 4.085 8.48C38.047 26.605 34.476 30 29.042 30c-2.775 0-4.895-.743-6.305-2.207-1.431-1.486-2.087-3.668-1.95-6.485a.548.548 0 0 1 .549-.53h5.84a.55.55 0 0 1 .422.209.48.48 0 0 1 .106.384c-.065 1.016.112 1.775.512 2.195.256.272.613.41 1.058.41 1.079 0 1.711-.763 1.735-2.09.02-1.148-.343-2.155-2.321-4.19-2.555-2.496-4.846-5.075-4.775-9.13.042-2.351.976-4.502 2.631-6.056C28.294.868 30.687 0 33.465 0c2.783.02 4.892.813 6.269 2.359 1.304 1.466 1.932 3.582 1.862 6.29h-.002Z"/>
+  <path fill="#0ae448" d="m59.096 29.012.037-27.932a.525.525 0 0 0-.529-.533h-8.738c-.294 0-.423.252-.507.42L36.707 28.842v.005l-.005.006c-.14.343.126.71.497.71h6.108c.33 0 .548-.1.656-.308l1.213-2.915c.149-.388.177-.424.601-.424h5.836c.406 0 .415.008.408.405l-.131 2.71a.525.525 0 0 0 .529.532h6.17a.522.522 0 0 0 .403-.182.458.458 0 0 0 .104-.369Zm-10.81-9.326c-.057 0-.102-.001-.138-.005a.146.146 0 0 1-.13-.183c.012-.041.029-.095.053-.163l4.377-10.827c.038-.107.086-.212.136-.314.071-.145.157-.155.184-.047.023.09-.502 11.118-.502 11.118-.041.413-.06.43-.467.464l-3.509-.041h-.008l.003-.002Z"/>
+  <path fill="#0ae448" d="M71.545.547h-4.639c-.245 0-.52.13-.585.422l-6.455 28.029a.423.423 0 0 0 .088.364.572.572 0 0 0 .437.202h5.798c.311 0 .525-.153.583-.418 0 0 .703-3.168.704-3.178.05-.247-.036-.439-.258-.555-.105-.054-.209-.108-.312-.163l-1.005-.522-1-.522-.387-.201a.186.186 0 0 1-.102-.17.199.199 0 0 1 .198-.194l3.178.014c.95.005 1.901-.062 2.836-.234 6.58-1.215 10.95-6.485 11.076-13.656.107-6.12-3.309-9.221-10.15-9.221l-.005.003Zm-1.579 16.68h-.124c-.278 0-.328-.03-.337-.04-.004-.007 1.833-8.073 1.834-8.084.047-.233.045-.367-.099-.446-.184-.102-2.866-1.516-2.866-1.516a.188.188 0 0 1-.101-.172.197.197 0 0 1 .197-.192h4.241c1.32.04 2.056 1.221 2.021 3.237-.061 3.492-1.721 7.09-4.766 7.214Z"/>
+</svg>
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">GSAP</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Animação web</p>
+</div>
+<!-- Lógica -->
+<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/20 hover:border-secondary/40 transition-all duration-500">
+<div class="mb-8">
+<span class="material-symbols-outlined text-secondary text-4xl" aria-hidden="true">psychology</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">Lógica</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Lógica de programação</p>
+</div>
+<!-- Algoritmos -->
+<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/20 hover:border-secondary/40 transition-all duration-500">
+<div class="mb-8">
+<span class="material-symbols-outlined text-secondary text-4xl" aria-hidden="true">schema</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">Algoritmos</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Resolução de problemas</p>
+</div>
+<!-- Documentação -->
+<div class="w-[260px] md:w-[320px] group p-8 bg-surface-container border border-outline-variant/20 hover:border-secondary/40 transition-all duration-500">
+<div class="mb-8">
+<span class="material-symbols-outlined text-secondary text-4xl" aria-hidden="true">description</span>
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">Documentação</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Documentação técnica</p>
+</div>
+
+<!-- Duplicados para Loop Infinito (ocultos para leitores de tela) -->
+<div class="w-[260px] md:w-[320px] p-8 bg-surface-container border border-outline-variant/20" aria-hidden="true">
+<div class="mb-8"><span class="material-symbols-outlined text-primary-container text-4xl" aria-hidden="true">terminal</span></div>
+<h3 class="font-headline text-xl font-bold mb-2">Java</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Back-end</p>
+</div>
+<div class="w-[260px] md:w-[320px] p-8 bg-surface-container border border-outline-variant/20" aria-hidden="true">
+<div class="mb-8"><span class="material-symbols-outlined text-primary-container text-4xl" aria-hidden="true">database</span></div>
+<h3 class="font-headline text-xl font-bold mb-2">SQL</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Banco de dados</p>
+</div>
+<div class="w-[260px] md:w-[320px] p-8 bg-surface-container border border-outline-variant/20" aria-hidden="true">
+<div class="mb-8"><img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/javascript.svg" alt="" class="w-10 h-10" width="40" height="40"></div>
+<h3 class="font-headline text-xl font-bold mb-2">JavaScript</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Linguagem de programação</p>
+</div>
+<div class="w-[260px] md:w-[320px] p-8 bg-surface-container border border-outline-variant/20" aria-hidden="true">
+<div class="mb-8"><img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/html.svg" alt="" class="w-10 h-10" width="40" height="40"></div>
+<h3 class="font-headline text-xl font-bold mb-2">HTML</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Estrutura de páginas</p>
+</div>
+<div class="w-[260px] md:w-[320px] p-8 bg-surface-container border border-outline-variant/20" aria-hidden="true">
+<div class="mb-8"><img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/css.svg" alt="" class="w-10 h-10" width="40" height="40"></div>
+<h3 class="font-headline text-xl font-bold mb-2">CSS</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Estilo e layout</p>
+</div>
+<div class="w-[260px] md:w-[320px] p-8 bg-surface-container border border-outline-variant/20" aria-hidden="true">
+<div class="mb-8"><img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/icons/tailwindcss.svg" alt="" class="w-10 h-10" width="40" height="40"></div>
+<h3 class="font-headline text-xl font-bold mb-2">Tailwind</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Framework de estilos</p>
+</div>
+<div class="w-[260px] md:w-[320px] p-8 bg-surface-container border border-outline-variant/20" aria-hidden="true">
+<div class="mb-8">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 82 30" class="w-10 h-10" aria-hidden="true" focusable="false">
+  <path fill="#0ae448" d="M23.81 14.013v.013l-1.075 4.665c-.058.264-.322.458-.626.458H20.81a.218.218 0 0 0-.208.155c-1.198 4.064-2.82 6.858-4.962 8.535-1.822 1.428-4.068 2.093-7.069 2.093-2.696 0-4.514-.867-6.056-2.578C.478 25.09-.364 21.388.146 16.926 1.065 8.549 5.41.096 13.776.096c2.545-.023 4.543.762 5.933 2.33 1.47 1.657 2.216 4.154 2.22 7.421a.55.55 0 0 1-.549.536h-6.13a.42.42 0 0 1-.407-.41c-.05-2.259-.72-3.36-2.052-3.36-2.35 0-3.736 3.19-4.471 4.959-1.027 2.47-1.55 5.152-1.447 7.824.049 1.244.249 2.994 1.43 3.718 1.047.643 2.541.217 3.446-.495.904-.711 1.632-1.942 1.938-3.065.043-.156.046-.277.005-.332-.043-.055-.162-.068-.253-.068h-1.574a.572.572 0 0 1-.438-.202.42.42 0 0 1-.087-.362l1.076-4.674c.053-.24.27-.42.537-.453v-.011h10.33c.024 0 .049 0 .072.005.268.034.457.284.452.556h.002Z"/>
+  <path fill="#0ae448" d="M41.594 8.65a.548.548 0 0 1-.548.531H35.4c-.37 0-.679-.3-.679-.665 0-1.648-.57-2.45-1.736-2.45s-1.918.717-1.94 1.968c-.025 1.395.764 2.662 3.01 4.84 2.957 2.774 4.142 5.232 4.085 8.48C38.047 26.605 34.476 30 29.042 30c-2.775 0-4.895-.743-6.305-2.207-1.431-1.486-2.087-3.668-1.95-6.485a.548.548 0 0 1 .549-.53h5.84a.55.55 0 0 1 .422.209.48.48 0 0 1 .106.384c-.065 1.016.112 1.775.512 2.195.256.272.613.41 1.058.41 1.079 0 1.711-.763 1.735-2.09.02-1.148-.343-2.155-2.321-4.19-2.555-2.496-4.846-5.075-4.775-9.13.042-2.351.976-4.502 2.631-6.056C28.294.868 30.687 0 33.465 0c2.783.02 4.892.813 6.269 2.359 1.304 1.466 1.932 3.582 1.862 6.29h-.002Z"/>
+  <path fill="#0ae448" d="m59.096 29.012.037-27.932a.525.525 0 0 0-.529-.533h-8.738c-.294 0-.423.252-.507.42L36.707 28.842v.005l-.005.006c-.14.343.126.71.497.71h6.108c.33 0 .548-.1.656-.308l1.213-2.915c.149-.388.177-.424.601-.424h5.836c.406 0 .415.008.408.405l-.131 2.71a.525.525 0 0 0 .529.532h6.17a.522.522 0 0 0 .403-.182.458.458 0 0 0 .104-.369Zm-10.81-9.326c-.057 0-.102-.001-.138-.005a.146.146 0 0 1-.13-.183c.012-.041.029-.095.053-.163l4.377-10.827c.038-.107.086-.212.136-.314.071-.145.157-.155.184-.047.023.09-.502 11.118-.502 11.118-.041.413-.06.43-.467.464l-3.509-.041h-.008l.003-.002Z"/>
+  <path fill="#0ae448" d="M71.545.547h-4.639c-.245 0-.52.13-.585.422l-6.455 28.029a.423.423 0 0 0 .088.364.572.572 0 0 0 .437.202h5.798c.311 0 .525-.153.583-.418 0 0 .703-3.168.704-3.178.05-.247-.036-.439-.258-.555-.105-.054-.209-.108-.312-.163l-1.005-.522-1-.522-.387-.201a.186.186 0 0 1-.102-.17.199.199 0 0 1 .198-.194l3.178.014c.95.005 1.901-.062 2.836-.234 6.58-1.215 10.95-6.485 11.076-13.656.107-6.12-3.309-9.221-10.15-9.221l-.005.003Zm-1.579 16.68h-.124c-.278 0-.328-.03-.337-.04-.004-.007 1.833-8.073 1.834-8.084.047-.233.045-.367-.099-.446-.184-.102-2.866-1.516-2.866-1.516a.188.188 0 0 1-.101-.172.197.197 0 0 1 .197-.192h4.241c1.32.04 2.056 1.221 2.021 3.237-.061 3.492-1.721 7.09-4.766 7.214Z"/>
+</svg>
+</div>
+<h3 class="font-headline text-xl font-bold mb-2">GSAP</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Animação web</p>
+</div>
+<div class="w-[260px] md:w-[320px] p-8 bg-surface-container border border-outline-variant/20" aria-hidden="true">
+<div class="mb-8"><span class="material-symbols-outlined text-secondary text-4xl" aria-hidden="true">psychology</span></div>
+<h3 class="font-headline text-xl font-bold mb-2">Lógica</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Lógica de programação</p>
+</div>
+<div class="w-[260px] md:w-[320px] p-8 bg-surface-container border border-outline-variant/20" aria-hidden="true">
+<div class="mb-8"><span class="material-symbols-outlined text-secondary text-4xl" aria-hidden="true">schema</span></div>
+<h3 class="font-headline text-xl font-bold mb-2">Algoritmos</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Resolução de problemas</p>
+</div>
+<div class="w-[260px] md:w-[320px] p-8 bg-surface-container border border-outline-variant/20" aria-hidden="true">
+<div class="mb-8"><span class="material-symbols-outlined text-secondary text-4xl" aria-hidden="true">description</span></div>
+<h3 class="font-headline text-xl font-bold mb-2">Documentação</h3>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-widest">Documentação técnica</p>
+</div>
+</div>
+</div>
+<div class="flex justify-end mt-6">
+<button id="marquee-toggle" type="button" class="inline-flex items-center gap-2 px-4 py-3 border border-outline text-on-surface-variant hover:text-on-surface transition-colors" aria-pressed="false" aria-controls="skills-marquee">
+<span class="material-symbols-outlined text-lg" aria-hidden="true" id="marquee-toggle-icon">pause</span>
+<span class="font-label text-xs tracking-widest" id="marquee-toggle-label">Pausar animação</span>
+</button>
+</div>
+</section>
+
+<!-- TIMELINE SECTION -->
+<section class="py-32 px-6 md:px-24 relative overflow-hidden" id="timeline">
+
+    <!-- Scroll-Driven Frame Background -->
+    <canvas id="timeline-canvas" class="section-frame-canvas" aria-hidden="true"></canvas>
+    <div class="section-frame-overlay" id="timeline-overlay" style="background:linear-gradient(105deg,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.6) 50%,rgba(0,0,0,0.82) 100%),linear-gradient(to bottom,rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 15%,rgba(0,0,0,0.3) 85%,rgba(0,0,0,0.7) 100%)" aria-hidden="true"></div>
+
+    <!-- Edge vignette blur -->
+    <div class="section-edge-vignette" aria-hidden="true"></div>
+
+<div class="mb-24 relative" style="z-index:5">
+<span class="font-label text-primary-container text-xs tracking-[0.4em] uppercase mb-4 block">Histórico</span>
+<h2 class="font-headline text-2xl sm:text-3xl md:text-6xl font-bold tracking-tighter break-words">Trajetória</h2>
+</div>
+<div class="relative max-w-4xl mx-auto pl-8 md:pl-0" style="z-index:5">
+    <!-- Vertical Glow Line -->
+    <div class="absolute left-[15px] md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#00FF87] via-[#9B5DE5] to-[#9B5DE5] transform md:-translate-x-1/2 shadow-[0_0_15px_rgba(155,93,229,0.8)]" aria-hidden="true"></div>
+
+    <!-- Timeline Item 1: SENAI (2024 - 2026) -->
+    <div class="relative mb-32 flex flex-col md:flex-row justify-between items-center w-full group">
+        <!-- Connecting Horizontal Line (desktop) -->
+        <div class="hidden md:block absolute left-1/2 top-10 w-8 h-[2px] bg-[#00FF87] shadow-[0_0_8px_#00FF87] z-0" aria-hidden="true"></div>
+
+        <!-- Left Side: Icon -->
+        <div class="hidden md:flex w-[45%] justify-end pr-12 items-center" aria-hidden="true">
+            <div class="relative flex items-center justify-center -mr-6">
+                <span class="material-symbols-outlined text-5xl text-[#00FF87] drop-shadow-[0_0_8px_#00FF87]" aria-hidden="true">developer_board</span>
+                <span class="material-symbols-outlined absolute -right-8 text-2xl text-[#00FF87] animate-pulse" aria-hidden="true">wifi</span>
+            </div>
+        </div>
+
+        <!-- Central Node (Hexagon) -->
+        <div class="absolute left-0 md:left-1/2 top-6 md:top-8 transform md:-translate-x-1/2 z-10 flex items-center justify-center filter drop-shadow-[0_0_8px_#00FF87]" aria-hidden="true">
+            <div class="w-8 h-8 bg-black flex items-center justify-center relative transition-transform duration-300 group-hover:scale-110" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                <div class="absolute inset-[2px] bg-[#00FF87] flex items-center justify-center" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                    <div class="absolute inset-[3px] bg-black" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Content -->
+        <div class="w-full md:w-[45%] pl-12 md:pl-12 mt-8 md:mt-0">
+            <div class="relative border-2 border-[#00FF87]/80 rounded-xl p-6 bg-black/60 backdrop-blur-md shadow-[0_0_20px_rgba(0,255,135,0.15),inset_0_0_15px_rgba(0,255,135,0.1)] hover:shadow-[0_0_30px_rgba(0,255,135,0.3),inset_0_0_20px_rgba(0,255,135,0.2)] transition-shadow duration-500">
+                <div class="absolute -top-[2px] -left-[2px] w-4 h-4 border-t-2 border-l-2 border-[#00FF87]" aria-hidden="true"></div>
+                <div class="absolute -bottom-[2px] -right-[2px] w-4 h-4 border-b-2 border-r-2 border-[#00FF87]" aria-hidden="true"></div>
+                <div class="absolute right-4 top-4 flex gap-1 opacity-70" aria-hidden="true">
+                    <div class="w-6 h-[2px] bg-[#00FF87]"></div><div class="w-2 h-[2px] bg-[#00FF87]"></div>
+                </div>
+
+                <h3 class="font-headline text-sm font-bold mb-3 text-white uppercase tracking-wider relative z-10">
+                    Formação técnica
+                </h3>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="material-symbols-outlined text-[#00FF87] text-[14px]" aria-hidden="true">calendar_month</span>
+                    <span class="font-label text-[11px] text-[#00FF87] uppercase tracking-widest">Ago 2024</span>
+                    <span class="font-label text-[11px] text-zinc-400 uppercase" aria-hidden="true">→</span>
+                    <span class="font-label text-[11px] text-[#00FF87] uppercase tracking-widest">Abr 2026</span>
+                </div>
+                <p class="font-body text-white font-bold text-base mb-1">SENAI - Beira Mar</p>
+                <p class="font-headline text-[#00FF87] font-bold text-lg mb-2 drop-shadow-[0_0_5px_rgba(0,255,135,0.5)]">Concluído: Desenvolvimento de Sistemas</p>
+                <p class="font-body text-zinc-300 text-sm mb-1">Programa de Aprendizagem Industrial</p>
+                <p class="font-body text-zinc-300 text-sm mb-1">Bento Ferreira, Vitória - ES</p>
+                <p class="font-body text-zinc-300 text-sm mb-3">Aprendiz na indústria (Ago 2024 – Abr 2026)</p>
+                <p class="font-body text-[#00FF87] font-semibold text-sm">Status: Concluído</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timeline Item 2: Ensino Médio (2023 - 2025) -->
+    <div class="relative mb-32 flex flex-col md:flex-row-reverse justify-between items-center w-full group">
+        <!-- Connecting Horizontal Line (desktop) -->
+        <div class="hidden md:block absolute right-1/2 top-10 w-8 h-[2px] bg-[#9B5DE5] shadow-[0_0_8px_#9B5DE5] z-0" aria-hidden="true"></div>
+
+        <!-- Right Side: Icon -->
+        <div class="hidden md:flex w-[45%] justify-start pl-12 items-center" aria-hidden="true">
+            <div class="relative flex items-center justify-center -ml-6 flex-row-reverse">
+                <span class="material-symbols-outlined text-5xl text-[#9B5DE5] drop-shadow-[0_0_8px_#9B5DE5]" aria-hidden="true">menu_book</span>
+                <span class="material-symbols-outlined absolute -left-8 text-2xl text-[#9B5DE5] animate-pulse" aria-hidden="true" style="transform: scaleX(-1);">wifi</span>
+            </div>
+        </div>
+
+        <!-- Central Node (Hexagon) -->
+        <div class="absolute left-[-5px] md:left-1/2 top-6 md:top-8 transform md:-translate-x-1/2 z-10 flex items-center justify-center filter drop-shadow-[0_0_8px_#9B5DE5]" aria-hidden="true">
+            <div class="w-8 h-8 bg-black flex items-center justify-center relative transition-transform duration-300 group-hover:scale-110" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                <div class="absolute inset-[2px] bg-[#9B5DE5] flex items-center justify-center" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                    <div class="absolute inset-[3px] bg-black" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Content -->
+        <div class="w-full md:w-[45%] pl-12 md:pl-0 pr-0 md:pr-12 mt-8 md:mt-0 text-left">
+            <div class="relative border-2 border-[#9B5DE5]/80 rounded-xl p-6 bg-black/60 backdrop-blur-md shadow-[0_0_20px_rgba(155,93,229,0.15),inset_0_0_15px_rgba(155,93,229,0.1)] hover:shadow-[0_0_30px_rgba(155,93,229,0.3),inset_0_0_20px_rgba(155,93,229,0.2)] transition-shadow duration-500">
+                <div class="absolute -top-[2px] -left-[2px] w-4 h-4 border-t-2 border-l-2 border-[#9B5DE5]" aria-hidden="true"></div>
+                <div class="absolute -bottom-[2px] -right-[2px] w-4 h-4 border-b-2 border-r-2 border-[#9B5DE5]" aria-hidden="true"></div>
+                <div class="absolute left-4 top-4 flex gap-1 opacity-70" aria-hidden="true">
+                    <div class="w-2 h-[2px] bg-[#9B5DE5]"></div><div class="w-6 h-[2px] bg-[#9B5DE5]"></div>
+                </div>
+
+                <h3 class="font-headline text-sm font-bold mb-3 text-white uppercase tracking-wider relative z-10">
+                    Ensino médio
+                </h3>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="material-symbols-outlined text-[#9B5DE5] text-[14px]" aria-hidden="true">calendar_month</span>
+                    <span class="font-label text-[11px] text-[#9B5DE5] uppercase tracking-widest">Fev 2023</span>
+                    <span class="font-label text-[11px] text-zinc-400 uppercase" aria-hidden="true">→</span>
+                    <span class="font-label text-[11px] text-[#9B5DE5] uppercase tracking-widest">Dez 2025</span>
+                </div>
+                <p class="font-body text-white font-bold text-base mb-1">Hilda Miranda Nascimento</p>
+                <p class="font-headline text-[#9B5DE5] font-bold text-lg mb-2 drop-shadow-[0_0_5px_rgba(155,93,229,0.5)]">Formação Integral em Manutenção</p>
+                <p class="font-body text-zinc-300 text-sm mb-1">Porto Canoa, Serra - ES</p>
+                <p class="font-body text-[#9B5DE5] font-semibold text-sm">Status: Concluído</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timeline Item 3: IBDH (2022 - 2024) -->
+    <div class="relative mb-12 flex flex-col md:flex-row justify-between items-center w-full group">
+        <!-- Connecting Horizontal Line -->
+        <div class="hidden md:block absolute left-1/2 top-10 w-8 h-[2px] bg-[#00FF87] shadow-[0_0_8px_#00FF87] z-0" aria-hidden="true"></div>
+
+        <!-- Left Side: Icon -->
+        <div class="hidden md:flex w-[45%] justify-end pr-12 items-center" aria-hidden="true">
+            <div class="relative flex items-center justify-center -mr-6">
+                <span class="material-symbols-outlined text-5xl text-[#00FF87] drop-shadow-[0_0_8px_#00FF87]" aria-hidden="true">integration_instructions</span>
+                <span class="material-symbols-outlined absolute -right-8 text-2xl text-[#00FF87] animate-pulse" aria-hidden="true">wifi</span>
+            </div>
+        </div>
+
+        <!-- Central Node (Hexagon) -->
+        <div class="absolute left-0 md:left-1/2 top-6 md:top-8 transform md:-translate-x-1/2 z-10 flex items-center justify-center filter drop-shadow-[0_0_8px_#00FF87]" aria-hidden="true">
+            <div class="w-8 h-8 bg-black flex items-center justify-center relative transition-transform duration-300 group-hover:scale-110" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                <div class="absolute inset-[2px] bg-[#00FF87] flex items-center justify-center" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);">
+                    <div class="absolute inset-[3px] bg-black" style="clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Content -->
+        <div class="w-full md:w-[45%] pl-12 md:pl-12 mt-8 md:mt-0">
+            <div class="relative border-2 border-[#00FF87]/80 rounded-xl p-6 bg-black/60 backdrop-blur-md shadow-[0_0_20px_rgba(0,255,135,0.15),inset_0_0_15px_rgba(0,255,135,0.1)] hover:shadow-[0_0_30px_rgba(0,255,135,0.3),inset_0_0_20px_rgba(0,255,135,0.2)] transition-shadow duration-500">
+                <div class="absolute -top-[2px] -left-[2px] w-4 h-4 border-t-2 border-l-2 border-[#00FF87]" aria-hidden="true"></div>
+                <div class="absolute -bottom-[2px] -right-[2px] w-4 h-4 border-b-2 border-r-2 border-[#00FF87]" aria-hidden="true"></div>
+                <div class="absolute right-4 top-4 flex gap-1 opacity-70" aria-hidden="true">
+                    <div class="w-6 h-[2px] bg-[#00FF87]"></div><div class="w-2 h-[2px] bg-[#00FF87]"></div>
+                </div>
+
+                <h3 class="font-headline text-sm font-bold mb-3 text-white uppercase tracking-wider relative z-10">
+                    Formação profissional
+                </h3>
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="material-symbols-outlined text-[#00FF87] text-[14px]" aria-hidden="true">calendar_month</span>
+                    <span class="font-label text-[11px] text-[#00FF87] uppercase tracking-widest">17 Nov 2022</span>
+                    <span class="font-label text-[11px] text-zinc-400 uppercase" aria-hidden="true">→</span>
+                    <span class="font-label text-[11px] text-[#00FF87] uppercase tracking-widest">21 Fev 2024</span>
+                </div>
+                <p class="font-body text-white font-bold text-base mb-1">Instituto Brasileiro de Desenvolvimento Humano (IBDH)</p>
+                <p class="font-headline text-[#00FF87] font-bold text-lg mb-2 drop-shadow-[0_0_5px_rgba(0,255,135,0.5)]">Assistente Administrativo</p>
+                <p class="font-body text-zinc-300 text-sm mb-1">Carga horária: 1280 horas</p>
+                <p class="font-body text-zinc-300 text-sm mb-3">Centro, Vitória - ES</p>
+                <p class="font-body text-[#00FF87] font-semibold text-sm">Status: Concluído</p>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- CONTACT SECTION -->
 <section class="py-32 px-6 md:px-24 bg-black border-t border-outline-variant/10 relative overflow-hidden" id="contact">
 
     <!-- Scroll-Driven Frame Background -->
     <canvas id="contact-canvas" class="section-frame-canvas" aria-hidden="true"></canvas>
-    <div class="section-frame-overlay" id="contact-overlay" style="background:linear-gradient(105deg,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.75) 45%,rgba(0,0,0,0.45) 100%),linear-gradient(to bottom,rgba(0,0,0,0.6) 0%,transparent 20%,transparent 80%,rgba(0,0,0,0.7) 100%)"></div>
+    <div class="section-frame-overlay" id="contact-overlay" style="background:linear-gradient(105deg,rgba(0,0,0,0.92) 0%,rgba(0,0,0,0.75) 45%,rgba(0,0,0,0.45) 100%),linear-gradient(to bottom,rgba(0,0,0,0.6) 0%,transparent 20%,transparent 80%,rgba(0,0,0,0.7) 100%)" aria-hidden="true"></div>
 
     <!-- Edge vignette blur -->
-    <div class="section-edge-vignette"></div>
-    
+    <div class="section-edge-vignette" aria-hidden="true"></div>
 
 <div class="w-full max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start relative px-4" style="z-index:5">
 <!-- Left Column: Info -->
-<div class="flex flex-col gap-12">
-<h2 class="font-headline text-3xl md:text-7xl font-bold tracking-tight text-white uppercase mb-4 break-all leading-[1.1]">CONECTAR_LINK</h2>
 <div class="flex flex-col gap-10">
-<div class="flex items-start gap-6">
-<div class="w-12 h-12 border border-primary-container/30 flex items-center justify-center text-primary-container">
-<span class="material-symbols-outlined text-2xl">alternate_email</span>
+<div>
+<h2 class="font-headline text-3xl md:text-7xl font-bold tracking-tight text-white mb-4 break-words leading-[1.1]">Contato</h2>
+<p class="font-body text-on-surface-variant text-base leading-relaxed max-w-md">Prefere escrever? Use o formulário — respondo em até um dia útil. Também estou disponível por e-mail e WhatsApp.</p>
+</div>
+<div class="flex flex-col gap-6">
+<div class="flex items-start gap-4">
+<div class="w-11 h-11 shrink-0 border border-outline flex items-center justify-center text-primary-container" aria-hidden="true">
+<span class="material-symbols-outlined text-xl" aria-hidden="true">alternate_email</span>
 </div>
 <div>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-[0.3em] mb-1">E-MAIL</p>
-<p class="font-label text-sm text-on-surface">henrisantana07@gmail.com</p>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-[0.2em] mb-1">E-mail</p>
+<a class="font-body text-base text-on-surface underline decoration-outline-variant underline-offset-4 hover:decoration-primary-container transition-colors inline-flex items-center min-h-[44px]" href="mailto:henrisantana07@gmail.com">henrisantana07@gmail.com</a>
 </div>
 </div>
-<div class="flex items-start gap-6">
-<div class="w-12 h-12 border border-primary-container/30 flex items-center justify-center text-primary-container">
-<span class="material-symbols-outlined text-2xl">call</span>
-</div>
-<div>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-[0.3em] mb-1">CONTATO / WHATSAPP</p>
-<p class="font-label text-sm text-on-surface">(27) 99761-2988</p>
-</div>
-</div>
-<div class="flex items-start gap-6">
-<div class="w-12 h-12 border border-primary-container/30 flex items-center justify-center text-primary-container">
-<span class="material-symbols-outlined text-2xl">location_on</span>
+<div class="flex items-start gap-4">
+<div class="w-11 h-11 shrink-0 border border-outline flex items-center justify-center text-primary-container" aria-hidden="true">
+<span class="material-symbols-outlined text-xl" aria-hidden="true">call</span>
 </div>
 <div>
-<p class="font-label text-[10px] text-on-surface-variant uppercase tracking-[0.3em] mb-1">LOCALIZAÇÃO</p>
-<p class="font-label text-sm text-on-surface">Serra - ES // BRASIL</p>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-[0.2em] mb-1">WhatsApp</p>
+<a class="font-body text-base text-on-surface underline decoration-outline-variant underline-offset-4 hover:decoration-primary-container transition-colors inline-flex items-center min-h-[44px]" href="https://wa.me/5527997612988?text=Ol%C3%A1!%20Vi%20seu%20portf%C3%B3lio." target="_blank" rel="noopener noreferrer">(27) 99761-2988</a>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-11 h-11 shrink-0 border border-outline flex items-center justify-center text-primary-container" aria-hidden="true">
+<span class="material-symbols-outlined text-xl" aria-hidden="true">location_on</span>
+</div>
+<div>
+<p class="font-label text-[11px] text-on-surface-variant uppercase tracking-[0.2em] mb-1">Localização</p>
+<p class="font-body text-base text-on-surface">Serra - ES, Brasil</p>
 </div>
 </div>
 </div>
-<a href="curriculo.pdf" download="Curriculo_Henrique_Lucas.pdf" onclick="showNotification('Iniciando download do currículo...', 'info')" class="w-fit mt-8 bg-primary-container text-on-primary-fixed px-10 py-5 font-label font-bold text-sm uppercase tracking-widest flex items-center gap-4 hover:brightness-110 transition-all">
-                        BAIXAR CURRÍCULO
-                        <span class="material-symbols-outlined text-xl">download</span>
+<a href="curriculo.pdf" download="Curriculo_Henrique_Lucas.pdf" onclick="showNotification('Iniciando download do currículo...', 'info')" class="w-fit border border-outline px-8 py-4 font-body font-semibold text-sm text-on-surface flex items-center gap-3 hover:border-primary-container hover:text-primary-container transition-colors">
+                        Baixar currículo
+                        <span class="material-symbols-outlined text-xl" aria-hidden="true">download</span>
 </a>
 </div>
 <!-- Right Column: Form -->
-<div class="bg-surface-container-lowest p-8 md:p-12 border border-outline-variant/10 shadow-2xl">
+<div class="bg-surface-container-lowest p-8 md:p-12 border border-outline-variant/30 shadow-2xl">
 <form id="contact-form" class="flex flex-col gap-6">
 <div>
-<input name="name" class="w-full bg-surface-container-low border-none focus:ring-1 focus:ring-primary-container/50 text-on-surface font-label text-xs p-5 uppercase tracking-widest placeholder:text-on-surface-variant/40" placeholder="SEU_NOME" type="text" required/>
+<label class="sr-only" for="name">Seu nome</label>
+<input id="name" name="name" autocomplete="name" class="w-full bg-surface-container-low border border-outline-variant/40 focus:border-primary-container focus:ring-1 focus:ring-primary-container/50 text-on-surface font-body text-base p-4 placeholder:text-on-surface-variant/60" placeholder="Seu nome" type="text" required/>
 </div>
 <div>
-<input name="email" class="w-full bg-surface-container-low border-none focus:ring-1 focus:ring-primary-container/50 text-on-surface font-label text-xs p-5 uppercase tracking-widest placeholder:text-on-surface-variant/40" placeholder="E-MAIL_DE_CONTATO" type="email" required/>
+<label class="sr-only" for="email">E-mail de contato</label>
+<input id="email" name="email" autocomplete="email" class="w-full bg-surface-container-low border border-outline-variant/40 focus:border-primary-container focus:ring-1 focus:ring-primary-container/50 text-on-surface font-body text-base p-4 placeholder:text-on-surface-variant/60" placeholder="seu@email.com" type="email" required/>
 </div>
 <div>
-<input name="subject" class="w-full bg-surface-container-low border-none focus:ring-1 focus:ring-primary-container/50 text-on-surface font-label text-xs p-5 uppercase tracking-widest placeholder:text-on-surface-variant/40" placeholder="ASSUNTO" type="text" required/>
+<label class="sr-only" for="subject">Assunto</label>
+<input id="subject" name="subject" class="w-full bg-surface-container-low border border-outline-variant/40 focus:border-primary-container focus:ring-1 focus:ring-primary-container/50 text-on-surface font-body text-base p-4 placeholder:text-on-surface-variant/60" placeholder="Assunto" type="text" required/>
 </div>
 <div>
-<textarea name="menssage" class="w-full bg-surface-container-low border-none focus:ring-1 focus:ring-primary-container/50 text-on-surface font-label text-xs p-5 uppercase tracking-widest placeholder:text-on-surface-variant/40 min-h-[160px]" placeholder="DETALHES_DA_MENSAGEM" required></textarea>
+<label class="sr-only" for="mensagem">Mensagem</label>
+<textarea id="mensagem" name="menssage" class="w-full bg-surface-container-low border border-outline-variant/40 focus:border-primary-container focus:ring-1 focus:ring-primary-container/50 text-on-surface font-body text-base p-4 placeholder:text-on-surface-variant/60 min-h-[160px]" placeholder="Sua mensagem" required></textarea>
 </div>
-<button id="submit-btn" type="submit" class="w-full border border-primary-container py-5 text-primary-container font-label text-sm uppercase tracking-[0.4em] font-bold hover:bg-primary-container hover:text-on-primary-fixed transition-all duration-300">
-                            ENVIAR TRANSMISSÃO
+<button id="submit-btn" type="submit" class="w-full bg-primary-container text-on-primary-fixed py-4 px-6 font-body font-semibold text-base hover:brightness-110 transition-all duration-300">
+                            Enviar mensagem
                         </button>
 </form>
 </div>
 </div>
 </section>
-<!-- LEGACY CONTACT SECTION (REDUCED) -->
-<section class="py-24 px-6 md:px-24 border-t border-outline-variant/10 flex flex-col items-center text-center opacity-40">
-<span class="font-label text-secondary text-[10px] tracking-[0.4em] uppercase mb-4 block">Legacy Nodes</span>
-<div class="flex gap-8">
-<a class="text-on-surface-variant hover:text-primary-container transition-colors" href="#"><span class="material-symbols-outlined text-xl">mail</span></a>
-<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-xl">account_circle</span></a>
-<a class="text-on-surface-variant hover:text-primary-container transition-colors" href="#"><span class="material-symbols-outlined text-xl">terminal</span></a>
-</div>
-</section>
 </main>
-<footer class="bg-black py-12 px-12 border-t border-zinc-900/50 flex flex-col md:flex-row justify-between items-center gap-8 w-full max-w-[1920px] mx-auto">
-<div class="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-zinc-600">
-            © 2026 HENRIQUE // TODOS OS DIREITOS RESERVADOS
+
+<footer class="bg-black py-12 px-6 md:px-12 border-t border-zinc-900/50 flex flex-col md:flex-row justify-between items-center gap-8 w-full max-w-[1920px] mx-auto">
+<div class="font-['JetBrains_Mono'] text-xs tracking-widest text-zinc-400">
+            © 2026 Henrique Santana. Todos os direitos reservados.
         </div>
 <div class="flex gap-8">
-<a target="_blank" class="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-zinc-600 hover:text-[#9B5DE5] transition-colors" href="https://github.com/henrisantana07">GitHub</a>
-<a target="_blank" class="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-zinc-600 hover:text-[#9B5DE5] transition-colors" href="https://www.linkedin.com/in/henrique-santana-017b45223/">LinkedIn</a>
-<a class="font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest text-zinc-600 hover:text-[#9B5DE5] transition-colors" href="#hero">Voltar ao topo</a>
+<a target="_blank" rel="noopener noreferrer" class="footer-link font-['JetBrains_Mono'] text-xs tracking-widest text-zinc-400 hover:text-[#9B5DE5] transition-colors" href="https://github.com/henrisantana07">GitHub</a>
+<a target="_blank" rel="noopener noreferrer" class="footer-link font-['JetBrains_Mono'] text-xs tracking-widest text-zinc-400 hover:text-[#9B5DE5] transition-colors" href="https://www.linkedin.com/in/henrique-santana-017b45223/">LinkedIn</a>
+<a class="footer-link font-['JetBrains_Mono'] text-xs tracking-widest text-zinc-400 hover:text-[#9B5DE5] transition-colors" href="#hero">Voltar ao topo</a>
 </div>
-<div class="text-[#00FF87] font-['JetBrains_Mono'] text-[11px] uppercase tracking-widest">
-            Pronto para novos desafios
-        </div>
-       <a href="https://wa.me/5527997612988?text=Olá! Vi seu portfólio de marca uma entrevista." 
-   target="_blank" 
-   rel="noopener noreferrer"
-   class="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-[#25D366] rounded-full shadow-2xl hover:bg-[#128C7E] hover:scale-110 transition-all duration-300 group"
-   aria-label="Fale conosco pelo WhatsApp">
-  
-  <svg 
-    class="w-8 h-8 text-white fill-current" 
-    viewBox="0 0 24 24" 
-    xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-  </svg>
-
-  <span class="absolute right-16 scale-0 transition-all rounded bg-gray-900 p-2 text-xs text-white group-hover:scale-100 whitespace-nowrap">
-    Falar no WhatsApp
-  </span>
-</a>
 </footer>
 <script src="script.js"></script>
 </body>
