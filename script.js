@@ -2,10 +2,8 @@
 const cursor = document.getElementById('cursor');
 const dot = document.getElementById('cursor-dot');
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-const reducedMotionMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 if (!isTouchDevice) {
-    document.documentElement.classList.add('has-custom-cursor');
     document.addEventListener('mousemove', (e) => {
         cursor.style.left = e.clientX + 'px';
         cursor.style.top = e.clientY + 'px';
@@ -53,36 +51,14 @@ const openMenuBtn = document.getElementById('open-menu');
 const closeMenuBtn = document.getElementById('close-menu');
 const mobileLinks = document.querySelectorAll('.mobile-menu-link');
 
-if (mobileMenu) {
-    mobileMenu.inert = true;
-    mobileMenu.setAttribute('aria-hidden', 'true');
-}
-
-const setMenuState = (open) => {
-    if (!mobileMenu) return;
-    mobileMenu.classList.toggle('active', open);
-    mobileMenu.inert = !open;
-    mobileMenu.setAttribute('aria-hidden', String(!open));
-    if (openMenuBtn) openMenuBtn.setAttribute('aria-expanded', String(open));
-    document.body.style.overflow = open ? 'hidden' : '';
-    if (open) {
-        const firstLink = mobileMenu.querySelector('.mobile-menu-link');
-        if (firstLink) firstLink.focus();
-    } else if (openMenuBtn) {
-        openMenuBtn.focus();
-    }
+const toggleMenu = () => {
+    mobileMenu.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
 };
 
-const toggleMenu = () => setMenuState(!mobileMenu.classList.contains('active'));
-
-if (openMenuBtn) openMenuBtn.addEventListener('click', toggleMenu);
-if (closeMenuBtn) closeMenuBtn.addEventListener('click', () => setMenuState(false));
-mobileLinks.forEach(link => link.addEventListener('click', () => setMenuState(false)));
-document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('active')) {
-        setMenuState(false);
-    }
-});
+openMenuBtn.addEventListener('click', toggleMenu);
+closeMenuBtn.addEventListener('click', toggleMenu);
+mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
 
 // Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -91,7 +67,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
         if(target) {
             target.scrollIntoView({
-                behavior: reducedMotionMedia.matches ? 'auto' : 'smooth'
+                behavior: 'smooth'
             });
         }
     });
@@ -99,7 +75,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Glitch Animation for Hero Name
 const glitchEl = document.getElementById('glitch-name');
-if(glitchEl && !reducedMotionMedia.matches) {
+if(glitchEl) {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_';
     let originalText = glitchEl.innerText;
     
@@ -115,8 +91,8 @@ if(glitchEl && !reducedMotionMedia.matches) {
 }
 
 // Nav Scroll Highlight Logic
-const navLinks = document.querySelectorAll('#nav-links-container a[href^="#"]');
-const sections = Array.from(navLinks).map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+const navLinks = document.querySelectorAll('#nav-links-container a');
+const sections = Array.from(navLinks).map(link => document.querySelector(link.getAttribute('href')));
 
 const observerOptions = {
     root: null,
@@ -126,8 +102,8 @@ const observerOptions = {
 
 const deactivateAll = () => {
     navLinks.forEach(link => {
-        link.classList.remove('is-active');
-        link.removeAttribute('aria-current');
+        link.classList.remove('text-[#00FF87]', 'border-[#00FF87]', 'hover:drop-shadow-[0_0_15px_rgba(0,255,135,0.4)]');
+        link.classList.add('text-zinc-500', 'border-transparent', 'hover:text-zinc-200');
     });
 };
 
@@ -135,8 +111,8 @@ const activateLink = (id) => {
     const activeLink = document.querySelector(`#nav-links-container a[href="#${id}"]`);
     if (activeLink) {
         deactivateAll();
-        activeLink.classList.add('is-active');
-        activeLink.setAttribute('aria-current', 'location');
+        activeLink.classList.remove('text-zinc-500', 'border-transparent', 'hover:text-zinc-200');
+        activeLink.classList.add('text-[#00FF87]', 'border-[#00FF87]', 'hover:drop-shadow-[0_0_15px_rgba(0,255,135,0.4)]');
     }
 };
 
@@ -152,21 +128,6 @@ sections.forEach(section => {
     if (section) observer.observe(section);
 });
 
-// Marquee: pausa/retomada (WCAG 2.2.2)
-const marquee = document.getElementById('skills-marquee');
-const marqueeToggle = document.getElementById('marquee-toggle');
-const marqueeToggleIcon = document.getElementById('marquee-toggle-icon');
-const marqueeToggleLabel = document.getElementById('marquee-toggle-label');
-
-if (marquee && marqueeToggle && marqueeToggleLabel && marqueeToggleIcon) {
-    marqueeToggle.addEventListener('click', () => {
-        const paused = marquee.classList.toggle('paused');
-        marqueeToggle.setAttribute('aria-pressed', String(paused));
-        marqueeToggleLabel.textContent = paused ? 'Retomar animação' : 'Pausar animação';
-        marqueeToggleIcon.textContent = paused ? 'play_arrow' : 'pause';
-    });
-}
-
 // Project Cards External Links
 let blockProjectCardClickUntil = 0;
 const projectsSection = document.getElementById('projects');
@@ -175,17 +136,8 @@ const decorateProjectCards = (rootEl) => {
     if (!rootEl) return;
     rootEl.querySelectorAll('[data-project-url]').forEach((card) => {
         card.style.cursor = 'pointer';
-    });
-};
-
-// Clones do carrossel são apenas visuais: não devem aparecer no leitor de tela
-// nem entrar na ordem de tabulação.
-const markProjectClone = (clone) => {
-    if (!clone) return;
-    clone.setAttribute('aria-hidden', 'true');
-    clone.classList.add('active');
-    clone.querySelectorAll('a, button, [tabindex]').forEach((el) => {
-        el.setAttribute('tabindex', '-1');
+        card.setAttribute('role', 'link');
+        card.setAttribute('tabindex', '0');
     });
 };
 
@@ -206,6 +158,15 @@ if (projectsSection) {
         if (event.target.closest('a, button')) return;
         openProjectFromCard(card);
     });
+
+    projectsSection.addEventListener('keydown', (event) => {
+        const card = event.target.closest('[data-project-url]');
+        if (!card || !projectsSection.contains(card)) return;
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            openProjectFromCard(card);
+        }
+    });
 }
 
 // Projects Carousel
@@ -213,6 +174,7 @@ const projectsTrack = document.getElementById('projects-track');
 const projectsViewport = document.getElementById('projects-carousel-viewport');
 const projectsPrevBtn = document.getElementById('projects-prev');
 const projectsNextBtn = document.getElementById('projects-next');
+const reducedMotionMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 let projectsCarouselEnabled = false;
 let projectsCarouselAnimating = false;
@@ -267,7 +229,6 @@ const rebuildProjectsTrack = () => {
     const prefixStart = totalCards - projectsVisibleCards;
     for (let i = 0; i < projectsVisibleCards; i++) {
         const clone = projectsOriginalCards[(prefixStart + i) % totalCards].cloneNode(true);
-        markProjectClone(clone);
         projectsTrack.appendChild(clone);
     }
 
@@ -277,7 +238,6 @@ const rebuildProjectsTrack = () => {
 
     for (let i = 0; i < projectsVisibleCards; i++) {
         const clone = projectsOriginalCards[i % totalCards].cloneNode(true);
-        markProjectClone(clone);
         projectsTrack.appendChild(clone);
     }
 
@@ -452,6 +412,7 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 
 const revealGroups = [
     document.querySelectorAll('#skills .relative.w-full.overflow-hidden'),
+    document.querySelectorAll('#tools .relative.w-full.overflow-hidden'),
     document.querySelectorAll('#timeline .relative.max-w-4xl > div.relative.flex'),
     document.querySelectorAll('#projects .grid > div'),
     document.querySelectorAll('#contact .flex-col > *, #contact form > *, #contact button.w-fit')
@@ -573,13 +534,6 @@ function initSectionFrameAnimation({ canvasId, counterId, sectionId, scrollMode,
             rafStarted = false; // Permite reiniciar pelo IntersectionObserver
             return; 
         }
-
-        // Respeita a preferência por menos movimento: mantém um quadro estático
-        if (reducedMotionMedia.matches) {
-            drawFrame(0, true);
-            rafStarted = false;
-            return;
-        }
         
         if (timestamp - lastLoopTime >= frameInterval) {
             lastLoopTime = timestamp;
@@ -679,7 +633,7 @@ initSectionFrameAnimation({
     fps:        10
 });
 
-// Trajetória: loop automático a 8 fps (independente do scroll)
+// Jornada_Log: loop automático a 8 fps (independente do scroll)
 initSectionFrameAnimation({
     canvasId:   'timeline-canvas',
     counterId:  'timeline-frame-counter',
@@ -688,7 +642,7 @@ initSectionFrameAnimation({
     fps:        8
 });
 
-// Contato: loop automático a 10 fps
+// CONECTAR_LINK: loop automático a 10 fps
 initSectionFrameAnimation({
     canvasId:   'contact-canvas',
     counterId:  'contact-frame-counter',
@@ -703,8 +657,6 @@ function showNotification(message, type = 'success') {
     if (!container) {
         container = document.createElement('div');
         container.className = 'notification-container';
-        container.setAttribute('role', 'status');
-        container.setAttribute('aria-live', 'polite');
         document.body.appendChild(container);
     }
 
@@ -716,7 +668,7 @@ function showNotification(message, type = 'success') {
     if (type === 'info') icon = 'info';
 
     toast.innerHTML = `
-        <span class="material-symbols-outlined toast-icon" aria-hidden="true" style="color: ${type === 'success' ? '#00FF87' : type === 'error' ? '#ffb4ab' : '#9B5DE5'}">${icon}</span>
+        <span class="material-symbols-outlined toast-icon" style="color: ${type === 'success' ? '#00FF87' : type === 'error' ? '#ffb4ab' : '#9B5DE5'}">${icon}</span>
         <div class="toast-content">${message}</div>
     `;
 
@@ -751,7 +703,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     
     // Estado de carregamento
     btn.disabled = true;
-    btn.innerHTML = 'Enviando...';
+    btn.innerHTML = 'ENVIANDO...';
 
     // DISPARO DUPLO: Notificação para você e Auto-Resposta para o cliente
     const notification = emailjs.sendForm('service_t6zj3q4', 'template_pj3z5me', this);
@@ -761,11 +713,11 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 
     Promise.all([notification, autoReply])
         .then(() => {
-            showNotification('Mensagem enviada com sucesso! Respondo em até um dia útil.', 'success');
+            showNotification('Conexão Estabelecida: Mensagem enviada com sucesso!', 'success');
             this.reset();
         }, (error) => {
             console.error('EmailJS Error:', error);
-            showNotification('Não foi possível enviar. Verifique sua conexão e tente novamente.', 'error');
+            showNotification('Falha na Transmissão: Verifique sua conexão.', 'error');
         })
         .finally(() => {
             btn.disabled = false;
