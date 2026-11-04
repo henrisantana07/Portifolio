@@ -9,77 +9,10 @@
         body {
             background-color: #000000;
             color: #e2e2e2;
-            font-size: 16px;
-        }
-        html.has-custom-cursor body {
             cursor: none;
         }
         * {
             box-sizing: border-box;
-        }
-
-        /* ── Acessibilidade: foco visível e atalho de navegação ── */
-        :focus-visible {
-            outline: 3px solid #00FF87;
-            outline-offset: 3px;
-            border-radius: 2px;
-        }
-        .skip-link {
-            position: absolute;
-            left: 16px;
-            top: -100px;
-            z-index: 10000;
-            padding: 12px 20px;
-            background: #00FF87;
-            color: #00210c;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 14px;
-            text-decoration: none;
-            transition: top 0.2s ease;
-        }
-        .skip-link:focus {
-            top: 16px;
-        }
-        section[id] {
-            scroll-margin-top: 96px;
-        }
-        /* Bordas de campos e componentes interativos com contraste mínimo de 3:1 */
-        #contact-form input,
-        #contact-form textarea {
-            border-color: #849585;
-        }
-
-        /* ── Navegação principal ── */
-        .nav-link {
-            display: inline-flex;
-            align-items: center;
-            min-height: 44px;
-            padding: 0 4px 4px;
-            color: #a1a1aa;
-            border-bottom: 2px solid transparent;
-            text-transform: uppercase;
-        }
-        .nav-link:hover {
-            color: #e4e4e7;
-        }
-        .nav-link.is-active {
-            color: #00FF87;
-            border-bottom-color: #00FF87;
-            filter: drop-shadow(0 0 15px rgba(0, 255, 135, 0.4));
-        }
-        .footer-link {
-            display: inline-flex;
-            align-items: center;
-            min-height: 44px;
-        }
-        #open-menu,
-        #close-menu {
-            min-width: 44px;
-            min-height: 44px;
-        }
-        #marquee-toggle {
-            min-height: 44px;
         }
         .technical-grid {
             background-image: radial-gradient(#3b4b3d 1px, transparent 1px);
@@ -92,11 +25,8 @@
             border: 1px solid #00FF87;
             border-radius: 50%;
             position: fixed;
-            top: -100px;
-            left: -100px;
             pointer-events: none;
             z-index: 9999;
-            display: none;
             transition: transform 0.1s ease;
             mix-blend-mode: difference;
         }
@@ -106,16 +36,9 @@
             background-color: #00FF87;
             border-radius: 50%;
             position: fixed;
-            top: -100px;
-            left: -100px;
             pointer-events: none;
             z-index: 9999;
-            display: none;
             box-shadow: 0 0 10px #00FF87;
-        }
-        html.has-custom-cursor .custom-cursor,
-        html.has-custom-cursor .custom-cursor-dot {
-            display: block;
         }
         .glass-panel {
             background: rgba(31, 31, 31, 0.6);
@@ -169,30 +92,8 @@
         .animate-marquee {
             animation: marquee-clockwise 30s linear infinite;
         }
-        .animate-marquee:hover,
-        .animate-marquee:focus-within {
+        .animate-marquee:hover {
             animation-play-state: paused;
-        }
-        .animate-marquee.paused {
-            animation-play-state: paused;
-        }
-
-        /* Respeita a preferência do sistema por menos movimento */
-        @media (prefers-reduced-motion: reduce) {
-            .animate-marquee,
-            .glitch-text::after,
-            .animate-bounce,
-            .animate-pulse {
-                animation: none !important;
-            }
-            .reveal-up {
-                opacity: 1;
-                transform: none;
-                transition: none;
-            }
-            #marquee-toggle {
-                display: none;
-            }
         }
 
         /* ── Scroll-Frame Backgrounds (Hero, Timeline, Contact) ── */
@@ -382,11 +283,10 @@
         
         .toast-icon { font-size: 20px; }
         .toast-content { 
-            font-family: 'Inter', sans-serif; 
-            font-size: 13px; 
-            line-height: 1.4;
-            letter-spacing: 0; 
-            text-transform: none; 
+            font-family: 'JetBrains Mono', monospace; 
+            font-size: 10px; 
+            letter-spacing: 0.1em; 
+            text-transform: uppercase; 
             color: #e2e2e2;
         }
 
@@ -430,32 +330,3 @@
             opacity: 0.45;
             cursor: not-allowed;
         }
-/* ── Projects Carousel ── */
-        #projects-carousel-viewport {
-            touch-action: pan-y;
-        }
-
-        #projects-track.carousel-active {
-            display: flex;
-            gap: 2rem;
-            transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-            will-change: transform;
-        }
-
-        #projects-track.carousel-active > .group {
-            flex: 0 0 100%;
-        }
-
-        @media (min-width: 1024px) {
-            #projects-track.carousel-active > .group {
-                flex: 0 0 calc((100% - 4rem) / 3);
-            }
-        }
-
-        #projects-prev:disabled,
-        #projects-next:disabled {
-            opacity: 0.45;
-            cursor: not-allowed;
-        }
-
-
